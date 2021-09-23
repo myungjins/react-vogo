@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import * as C from "styles/common/colors";
-import * as F from "styles/common/fontSize";
+import * as C from "components/shared/common/colors";
+import * as F from "components/shared/common/fontSize";
 
 export const Title = styled.div`
   display: flex;

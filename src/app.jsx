@@ -1,6 +1,6 @@
 import React from "react";
 import Routes from "routes/routes";
-import GlobalStyle from "styles/globalStyle";
+import GlobalStyle from "components/shared/global/globalStyle";
 
 const App = (props) => (
   <>

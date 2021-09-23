@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import * as C from "styles/common/colors";
-import { ROBOTO } from "styles/common/fontFamily";
-import { Xsmall } from "styles/common/fontSize";
+import * as C from "components/shared/common/colors";
+import { ROBOTO } from "components/shared/common/fontFamily";
+import { Xsmall } from "components/shared/common/fontSize";
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
@@ -92,10 +92,14 @@ export default function Banner() {
           </SBanner>
         </SwiperSlide>
         <SwiperSlide>
-          <SBanner>2</SBanner>
+          <SBanner>
+            <Img src='assets/images/banner/default.png' alt='default img' />
+          </SBanner>
         </SwiperSlide>
         <SwiperSlide>
-          <SBanner>3</SBanner>
+          <SBanner>
+            <Img src='assets/images/banner/default.png' alt='default img' />
+          </SBanner>
         </SwiperSlide>
       </SSwiper>
     </>

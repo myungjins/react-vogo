@@ -5,7 +5,7 @@ import * as C from "components/shared/common/colors";
 import * as F from "components/shared/common/fontSize";
 import { imgRoutes } from "components/shared/common/images";
 
-const Containner = styled.div`
+const Container = styled.div`
   padding-bottom: 50px;
 `;
 
@@ -14,10 +14,6 @@ const Content = styled.div`
   align-items: flex-start;
   flex-wrap: wrap;
   padding-bottom: 50px;
-`;
-
-const Box = styled.div`
-  padding-bottom: 20px;
 `;
 
 const GoodsPrices = styled(S.GoodsPrices)`
@@ -32,7 +28,7 @@ const Discount = styled(S.Discount)`
 
 const Thumbnailguide = () => {
   return (
-    <Containner>
+    <Container>
       <Content>
         <S.ThumbnailWrap>
           <S.ThumbnailBox>
@@ -137,80 +133,7 @@ const Thumbnailguide = () => {
           </S.SellerBox>
         </S.ThumbnailWrap>
       </Content>
-
-      <Box>
-        <S.ThumbnailSmall>
-          <S.ThumbnailSmallImg />
-          <S.ThumbnailSmallTextBox>
-            <S.ThumbnailSmallTitle>옵션도 없고 제품명 1줄</S.ThumbnailSmallTitle>
-            <S.ThumbnailSmallOptionBox>
-              <S.ThumbnailSmallOption>옵션</S.ThumbnailSmallOption>
-              <S.ThumbnailSmallOptionText>라이트퍼플 / M</S.ThumbnailSmallOptionText>
-            </S.ThumbnailSmallOptionBox>
-            <S.ThumbnailSmallPriceBox>
-              <S.ThumbnailSmallPrice>23,000원</S.ThumbnailSmallPrice>
-              <S.ThumbnailSmallPrice>2개</S.ThumbnailSmallPrice>
-            </S.ThumbnailSmallPriceBox>
-          </S.ThumbnailSmallTextBox>
-        </S.ThumbnailSmall>
-      </Box>
-
-      <Box>
-        <S.ThumbnailSmall>
-          <S.ThumbnailSmallImg />
-          <S.ThumbnailSmallTextBox>
-            <S.ThumbnailSmallTitle>옵션도 없고 제품명 1줄</S.ThumbnailSmallTitle>
-
-            <S.ThumbnailSmallPriceBox>
-              <S.ThumbnailSmallPrice>23,000원</S.ThumbnailSmallPrice>
-              <S.ThumbnailSmallPrice>22개</S.ThumbnailSmallPrice>
-            </S.ThumbnailSmallPriceBox>
-          </S.ThumbnailSmallTextBox>
-        </S.ThumbnailSmall>
-      </Box>
-
-      <Box>
-        <S.ThumbnailSmall>
-          <S.ThumbnailSmallImg />
-          <S.ThumbnailSmallTextBox>
-            <S.ThumbnailSmallTitle>옵션도 없고 제품명 1줄</S.ThumbnailSmallTitle>
-
-            <S.ThumbnailSmallPriceBox>
-              <S.ThumbnailSmallPrice>23,000원</S.ThumbnailSmallPrice>
-            </S.ThumbnailSmallPriceBox>
-          </S.ThumbnailSmallTextBox>
-        </S.ThumbnailSmall>
-      </Box>
-
-      <Box>
-        <S.ThumbnailSmall>
-          <S.ThumbnailSmallImg />
-          <S.ThumbnailSmallTextBox>
-            <S.ThumbnailSmallTitle>옵션도 없고 제품명 1줄</S.ThumbnailSmallTitle>
-
-            <S.ThumbnailSmallPriceBox>
-              <S.ThumbnailSmallPrice>23,000원</S.ThumbnailSmallPrice>
-              <S.ThumbnailSmallPrice>2개</S.ThumbnailSmallPrice>
-              <S.ThumbnailSmallPriceDel>50,000원</S.ThumbnailSmallPriceDel>
-            </S.ThumbnailSmallPriceBox>
-          </S.ThumbnailSmallTextBox>
-        </S.ThumbnailSmall>
-      </Box>
-
-      <Box>
-        <S.ThumbnailSmall>
-          <S.ThumbnailSmallImg />
-          <S.ThumbnailSmallTextBox>
-            <S.ThumbnailSmallTitle>옵션도 없고 제품명 1줄</S.ThumbnailSmallTitle>
-
-            <S.ThumbnailSmallPriceBox>
-              <S.ThumbnailSmallPriceDiscount>43</S.ThumbnailSmallPriceDiscount>
-              <S.ThumbnailSmallPrice>23,000원</S.ThumbnailSmallPrice>
-            </S.ThumbnailSmallPriceBox>
-          </S.ThumbnailSmallTextBox>
-        </S.ThumbnailSmall>
-      </Box>
-    </Containner>
+    </Container>
   );
 };
 

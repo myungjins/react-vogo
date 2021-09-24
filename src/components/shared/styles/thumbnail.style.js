@@ -2,7 +2,7 @@ import styled from "styled-components";
 import * as C from "components/shared/common/colors";
 import * as F from "components/shared/common/fontSize";
 import { ROBOTO } from "components/shared/common/fontFamily";
-import { imgRoutes } from "../common/images";
+import { imgRoutes } from "components/shared/common/images";
 
 export const ThumbnailWrap = styled.div`
   width: 49%;
@@ -96,9 +96,10 @@ export const LiveViewerNum = styled.span`
 `;
 
 export const Time = styled.p`
-  font-family: ${ROBOTO};
-  font-weight: 500;
+  font-size: ${F.SPRIMARY};
   color: ${C.WHITE};
+  font-weight: 500;
+  font-family: ${ROBOTO};
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
 `;
 
@@ -180,7 +181,7 @@ export const Seller = styled.div`
   display: flex;
   align-items: center;
   margin: 10px 0 5px;
-  font-size: 11px;
+  font-size: ${F.Xsmall};
   font-weight: bold;
 `;
 
@@ -204,7 +205,7 @@ export const SellerTitle = styled.p`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   word-wrap: break-word;
-  font-size: ${F.SMALL};
+  font-size: ${F.SPRIMARY};
   line-height: 1.38;
 `;
 
@@ -237,85 +238,4 @@ export const Date = styled.p`
   margin-top: 5px;
   font-size: 10px;
   color: ${C.GACB5BD};
-`;
-
-export const ThumbnailSmall = styled.div`
-  display: flex;
-  align-items: flex-start;
-`;
-
-export const ThumbnailSmallImg = styled.div`
-  flex: 0 0 90px;
-  width: 90px;
-  height: 90px;
-  margin-right: 12px;
-  border: 1px solid ${C.GF1F3F5};
-  border-radius: 4px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-`;
-
-export const ThumbnailSmallTextBox = styled.div``;
-
-export const ThumbnailSmallTitle = styled.p`
-  font-size: ${F.MEDIUM};
-  margin-bottom: 6px;
-  line-height: 1.33;
-`;
-
-export const ThumbnailSmallPriceBox = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const ThumbnailSmallPrice = styled.span`
-  font-family: ${ROBOTO};
-  font-size: 16px;
-  font-weight: bold;
-  color: ${C.G4A5561};
-  &:not(:last-child)::after {
-    content: "";
-    display: inline-block;
-    visibility: ${(props) => (props.line ? "hidden" : "initial")};
-    width: 1px;
-    height: 14px;
-    margin: ${(props) => (props.line ? "0 2px" : "0 6px")};
-    background-color: ${C.GCCD4D8};
-  }
-`;
-
-export const ThumbnailSmallPriceDel = styled.del`
-  color: ${C.GCCD4D8};
-`;
-
-export const ThumbnailSmallPriceDiscount = styled.span`
-  font-family: ${ROBOTO};
-  font-size: 16px;
-  font-weight: bold;
-  margin-right: 6px;
-  color: ${C.PVOGO};
-  &::after {
-    content: "%";
-  }
-`;
-
-export const ThumbnailSmallOptionBox = styled.div`
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 6px;
-  font-size: ${F.SMALL};
-`;
-
-export const ThumbnailSmallOption = styled.div`
-  flex: 0 0 32px;
-  margin-right: 6px;
-  padding: 0 4px;
-  border: 1px solid ${C.GCCD4D8};
-  font-size: ${F.Xsmall};
-  color: ${C.GCCD4D8};
-`;
-
-export const ThumbnailSmallOptionText = styled.div`
-  color: ${C.G858F9C};
 `;

@@ -85,7 +85,7 @@ const FormGuide = () => {
             type='text'
             placeholder='주소 검색'
           />
-          <S.FormIcon icon={"searchBlack"} />
+          <S.FormIcon />
         </S.FormIconBox>
         <S.FormHelper>협의되지 않은 요청사항은 반영되지 않을 수 있습니다</S.FormHelper>
       </Form>
@@ -142,11 +142,10 @@ const FormGuide = () => {
         <Title>RADIO</Title>
         <Lable>
           <S.CheckWrap>
-            <S.CheckBox //
+            <S.RadioBox //
               type='radio'
               name='apiName'
               defaultChecked
-              icon={"radioOn"}
             />
             <S.Check />
           </S.CheckWrap>
@@ -154,10 +153,9 @@ const FormGuide = () => {
 
         <Lable>
           <S.CheckWrap>
-            <S.CheckBox //
+            <S.RadioBox //
               type='radio'
               name='apiName'
-              icon={"radioOn"}
             />
             <S.Check />
           </S.CheckWrap>
@@ -165,10 +163,9 @@ const FormGuide = () => {
 
         <Lable>
           <S.CheckWrap>
-            <S.CheckBox //
+            <S.RadioBox //
               type='radio'
               name='apiName'
-              icon={"radioOn"}
               disabled
             />
             <S.Check />
@@ -177,10 +174,9 @@ const FormGuide = () => {
 
         <Lable>
           <S.CheckWrap>
-            <S.CheckBox //
+            <S.RadioBox //
               type='radio'
               name='apiName'
-              icon={"radioOn"}
             />
             <S.Check />
             <S.CheckName>여성</S.CheckName>
@@ -192,7 +188,6 @@ const FormGuide = () => {
             <S.CheckBox //
               type='radio'
               name='apiName'
-              icon={"radioOn"}
               disabled
             />
             <S.Check />
@@ -202,10 +197,9 @@ const FormGuide = () => {
 
         <Lable>
           <S.CheckStartWrap>
-            <S.CheckBox //
+            <S.RadioBox //
               type='radio'
               name='apiName'
-              icon={"radioOn"}
             />
             <S.Check />
             <S.CheckRight>
@@ -236,7 +230,6 @@ const FormGuide = () => {
           <S.CheckWrap>
             <S.CheckBox //
               type='checkbox'
-              icon={"checkOn"}
             />
             <S.Check />
           </S.CheckWrap>
@@ -246,7 +239,6 @@ const FormGuide = () => {
           <S.CheckWrap>
             <S.CheckBox //
               type='checkbox'
-              icon={"checkOn"}
               disabled
             />
             <S.Check />
@@ -257,7 +249,6 @@ const FormGuide = () => {
           <S.CheckWrap>
             <S.CheckBox //
               type='checkbox'
-              icon={"checkOn"}
             />
             <S.Check />
             <S.CheckName>여성</S.CheckName>
@@ -268,7 +259,6 @@ const FormGuide = () => {
           <S.CheckWrap>
             <S.CheckBox //
               type='checkbox'
-              icon={"checkOn"}
               disabled
             />
             <S.Check />
@@ -281,7 +271,6 @@ const FormGuide = () => {
             <S.CheckListWrap>
               <S.CheckBox //
                 type='checkbox'
-                icon={"checkOn"}
               />
               <S.Check />
               <S.CheckName>리스트 텍스트</S.CheckName>
@@ -294,20 +283,18 @@ const FormGuide = () => {
             <S.CheckListWrap>
               <S.CheckBox //
                 type='checkbox'
-                icon={"checkOn"}
               />
               <S.Check />
               <S.CheckName>리스트 텍스트</S.CheckName>
             </S.CheckListWrap>
           </Lable>
-          <S.Arrow icon={"arrowSelect"} />
+          <S.Arrow />
         </S.CheckText>
 
         <Lable>
           <S.CheckWrap>
-            <S.CheckBox //
+            <S.CheckSquareBox //
               type='checkbox'
-              icon={"checkSquareOn"}
             />
             <S.Check className='square' />
             <S.CheckName>체크박스가 네모인 경우</S.CheckName>
@@ -322,7 +309,6 @@ const FormGuide = () => {
           <S.CheckWrap>
             <S.ToggleCheck //
               type='checkbox'
-              icon={"checkOn"}
             />
             <S.ToggleSlider />
           </S.CheckWrap>
@@ -347,7 +333,7 @@ const FormGuide = () => {
         <S.ImgWraps>
           <S.ImgWrap>
             <S.ImgItem>
-              <S.PrdImg src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <S.PrdImg src={`${imgRoutes.thumbnail}/product_default.png`} alt='기본 이미지' />
               <S.ImgInput type='file' id='userImage1' />
               <S.ImgLabel htmlFor='userImage1'>
                 <S.ImgTxt>사진추가</S.ImgTxt>

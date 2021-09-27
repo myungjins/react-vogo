@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import * as S from "components/shared/styles/button.style";
+import { imgRoutes } from "../common/images";
 
-const Containner = styled.div`
+const Container = styled.div`
   padding: 30px 0;
 `;
 
@@ -19,17 +20,21 @@ const Btn2 = styled(S.BtnBox)`
 
 const ButtonGuide = () => {
   return (
-    <Containner>
+    <Container>
       <Btn>
         <S.BtnPurple>
-          <S.BtnIcon icon={"downloadWhite"} />
+          <S.BtnIcon
+            style={{ backgroundImage: `url(${imgRoutes.common}/ic_download_white.png)` }}
+          />
           주문하기
         </S.BtnPurple>
       </Btn>
 
       <Btn>
         <S.BtnGray>
-          <S.BtnIcon icon={"downloadWhite"} />
+          <S.BtnIcon
+            style={{ backgroundImage: `url(${imgRoutes.common}/ic_download_white.png)` }}
+          />
           주문하기
         </S.BtnGray>
       </Btn>
@@ -56,7 +61,9 @@ const ButtonGuide = () => {
 
       <Btn>
         <S.BtnWhiteOn>
-          <S.BtnIcon icon={"downloadPurple"} />
+          <S.BtnIcon
+            style={{ backgroundImage: `url(${imgRoutes.common}/ic_download_purple.png)` }}
+          />
           주문하기
         </S.BtnWhiteOn>
       </Btn>
@@ -67,7 +74,7 @@ const ButtonGuide = () => {
 
       <Btn>
         <S.BtnWhiteOff>
-          <S.BtnIcon icon={"downloadGray"} />
+          <S.BtnIcon style={{ backgroundImage: `url(${imgRoutes.common}/ic_download_gray.png)` }} />
           주문하기
         </S.BtnWhiteOff>
       </Btn>
@@ -78,17 +85,17 @@ const ButtonGuide = () => {
 
       <Btn>
         <S.BtnCall option={"1"}>
-          <S.BtnIcon icon={"callPurple"} />
+          <S.BtnIcon style={{ backgroundImage: `url(${imgRoutes.common}/ic_call_purple.png)` }} />
           전화걸기
         </S.BtnCall>
 
         <S.BtnCall option={"2"}>
-          <S.BtnIcon icon={"callBlack"} />
+          <S.BtnIcon style={{ backgroundImage: `url(${imgRoutes.common}/ic_call_black.png)` }} />
           전화걸기
         </S.BtnCall>
 
         <S.BtnCall option={"3"}>
-          <S.BtnIcon icon={"callGray"} />
+          <S.BtnIcon style={{ backgroundImage: `url(${imgRoutes.common}/ic_call_gray.png)` }} />
           전화걸기
         </S.BtnCall>
 
@@ -97,7 +104,7 @@ const ButtonGuide = () => {
         <S.BtnCall option={"5"}>전화걸기</S.BtnCall>
 
         <S.BtnCall option={"6"}>
-          <S.BtnIcon icon={"callBlack"} />
+          <S.BtnIcon style={{ backgroundImage: `url(${imgRoutes.common}/ic_call_black.png)` }} />
           전화걸기
         </S.BtnCall>
       </Btn>
@@ -114,7 +121,7 @@ const ButtonGuide = () => {
 
       <Btn>
         <S.BtnDelete>
-          <S.BtnIcon icon={"deleteGray"} />
+          <S.BtnIcon style={{ backgroundImage: `url(${imgRoutes.common}/ic_delete_gary2.png)` }} />
           삭제
         </S.BtnDelete>
       </Btn>
@@ -122,13 +129,18 @@ const ButtonGuide = () => {
       <Btn>
         <S.Count>
           <S.CountBtn type='button'>
-            <S.CountIcon icon={"minusGray"} />
+            <S.CountIcon
+              style={{ backgroundImage: `url(${imgRoutes.common}/ic_minus_black.png)` }}
+              option={true}
+            />
           </S.CountBtn>
           <S.InputWrap>
             <S.Input type='number' />
           </S.InputWrap>
           <S.CountBtn type='button'>
-            <S.CountIcon icon={"plusBlack"} />
+            <S.CountIcon
+              style={{ backgroundImage: `url(${imgRoutes.common}/ic_plus_black.png)` }}
+            />
           </S.CountBtn>
         </S.Count>
       </Btn>
@@ -136,13 +148,18 @@ const ButtonGuide = () => {
       <Btn>
         <S.Count>
           <S.CountBtn type='button'>
-            <S.CountIcon icon={"minusBlack2"} />
+            <S.CountIcon
+              style={{ backgroundImage: `url(${imgRoutes.common}/ic_minus_black.png)` }}
+            />
           </S.CountBtn>
           <S.InputWrap>
             <S.Input type='number' />
           </S.InputWrap>
           <S.CountBtn type='button'>
-            <S.CountIcon icon={"plusBlack"} option={true} />
+            <S.CountIcon
+              style={{ backgroundImage: `url(${imgRoutes.common}/ic_plus_black.png)` }}
+              option={true}
+            />
           </S.CountBtn>
         </S.Count>
       </Btn>
@@ -150,7 +167,11 @@ const ButtonGuide = () => {
       <Btn>
         <S.LinkBtn>
           주문목록, 배송조회
-          <S.LinkIcon icon={"arrowStepNext"} />
+          <S.LinkIcon
+            style={{
+              background: `url(${imgRoutes.common}/ic_arrow_gray.png) no-repeat center/contain`,
+            }}
+          />
         </S.LinkBtn>
       </Btn>
 
@@ -163,13 +184,21 @@ const ButtonGuide = () => {
             </S.CircleTxt>
           </S.CircleEx>
           <S.CircleCount>999</S.CircleCount>
-          <S.CircleIcon icon={"commentWhite"} />
+          <S.CircleIcon
+            style={{
+              background: `url(${imgRoutes.common}/ic_comment_white.png) no-repeat center/contain`,
+            }}
+          />
         </S.CircleBtn>
       </Btn2>
 
       <Btn>
         <S.CircleUpBtn>
-          <S.CircleIcon2 icon={"arrowUpBlack"} />
+          <S.CircleIcon2
+            style={{
+              background: `url(${imgRoutes.common}/ic_arrow_top.png) no-repeat center/contain`,
+            }}
+          />
         </S.CircleUpBtn>
       </Btn>
 
@@ -182,7 +211,7 @@ const ButtonGuide = () => {
           <S.CartCount>4</S.CartCount>
         </S.CartBtn>
       </Btn>
-    </Containner>
+    </Container>
   );
 };
 

@@ -1,15 +1,25 @@
 import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import { reset } from "styled-reset";
+import { normalize } from "styled-normalize";
+import { SPRIMARY } from "components/shared/common/fontSize";
+import { CPRIMARY } from "components/shared/common/colors";
 
 const GlobalStyle = createGlobalStyle`
     ${reset};
+    ${normalize}
+    
     body{
         display: flex;
         justify-content:center;
         flex-direction: column;
         padding: 0;
         margin: 0;
+        font-size: ${SPRIMARY};
+        font-weight: 400;
+        color: ${CPRIMARY};
         font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+        letter-spacing: -0.4px;
+        line-height: 1.5;
         letter-spacing: 0px;
     }
 

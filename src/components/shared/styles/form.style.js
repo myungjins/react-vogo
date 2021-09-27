@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import * as C from "components/shared/common/colors";
 import * as F from "components/shared/common/fontSize";
+import { imgRoutes } from "../common/images";
 
 // TEXT
 export const FormText = styled.input`
@@ -58,6 +59,7 @@ export const FormBtn = styled.button`
     width: 16px;
     height: 21px;
     padding-left: 3px;
+    background: url("${imgRoutes.common}/ic_arrow_purple.png") no-repeat center/contain;
   }
 `;
 
@@ -92,6 +94,9 @@ export const AddressForm = styled(FormText)`
 `;
 
 export const AddressBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40%;
   height: 48px;
   margin-left: 10px;
@@ -108,6 +113,7 @@ export const FormIcon = styled.i`
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
+  background: url("${imgRoutes.common}/ic_search_black.png") no-repeat center/contain;
   cursor: pointer;
 `;
 
@@ -154,6 +160,7 @@ export const SelectBox = styled.select`
   border-radius: 4px;
   font-size: ${F.MEDIUM};
   font-weight: 400;
+  background: url("${imgRoutes.common}/ic_arrow_down_gray.png") no-repeat 97% 50%/24px 24px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -230,6 +237,7 @@ export const CheckBox = styled.input`
   -moz-appearance: none;
   appearance: none;
   &:checked + i {
+    background: url("${imgRoutes.common}/ic_checkbox.png") no-repeat center/contain;
     border: none;
   }
   &:disabled + i {
@@ -241,6 +249,18 @@ export const CheckBox = styled.input`
   }
 `;
 
+export const RadioBox = styled(CheckBox)`
+  &:checked + i {
+    background: url("${imgRoutes.common}/ic_radio.png") no-repeat center/contain;
+  }
+`;
+
+export const CheckSquareBox = styled(CheckBox)`
+  &:checked + i {
+    background: url("${imgRoutes.common}/ic_checkbox_square.png") no-repeat center/contain;
+  }
+`;
+
 export const Check = styled.i`
   flex: 0 0 20px;
   display: inline-block;
@@ -248,7 +268,7 @@ export const Check = styled.i`
   height: 20px;
   border-radius: 50%;
   border: 1px solid ${C.GCCD4D8};
-  background-color: ${C.WHITE};
+  background: ${C.WHITE};
   background-size: 32px;
   background-repeat: no-repeat;
   background-position: center;
@@ -271,6 +291,7 @@ export const CheckName = styled.p`
 export const Arrow = styled.button`
   width: 50px;
   height: 50px;
+  background: url("${imgRoutes.common}/ic_arrow_down_gray.png") no-repeat center/24px 24px;
 `;
 
 export const Toggle = styled.label`
@@ -403,6 +424,7 @@ export const ImgLabel = styled.label`
   left: 0;
   width: 100%;
   height: 100%;
+  background: url("${imgRoutes.common}/ic_plus_gray.png") no-repeat 50% 22px/23px 23px;
   border: 1px dashed #ced3da;
   border-radius: 4px;
 `;
@@ -428,6 +450,7 @@ export const ImgButton = styled.button`
   right: -7px;
   width: 24px;
   height: 24px;
+  background: url("${imgRoutes.common}/ic_delete_gray.png") no-repeat center/contain;
   z-index: 10;
   outline: none;
 `;

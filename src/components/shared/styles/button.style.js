@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import * as C from "components/shared/common/colors";
 import * as F from "components/shared/common/fontSize";
-import { ROBOTO } from "../common/fontFamily";
+import { ROBOTO } from "components/shared/common/fontFamily";
+import { imgRoutes } from "../common/images";
 
 export const BtnBox = styled.div`
   display: flex;
@@ -152,14 +153,17 @@ export const Count = styled.div`
 `;
 
 export const CountBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 35%;
   height: 100%;
   outline: none;
 `;
 
 export const CountIcon = styled.i`
-  width: 14px;
-  height: 17px;
+  width: 12px;
+  height: 12px;
   vertical-align: middle;
   opacity: ${(props) => (props.option ? 0.2 : 1)};
 `;
@@ -217,7 +221,6 @@ export const LinkIcon = styled.i`
   width: 24px;
   height: 24px;
   background-size: 7px;
-  opacity: 0.5;
   vertical-align: middle;
 `;
 
@@ -325,6 +328,7 @@ export const CircleIcon2 = styled(CircleIcon)`
 export const PlusBtn = styled.button`
   width: 44px;
   height: 44px;
+  background: url("${imgRoutes.common}/ic_plus_purple.png") no-repeat center/contain;
 `;
 
 export const CartBtn = styled.button`

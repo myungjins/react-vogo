@@ -19,7 +19,6 @@ const GoodsGuide = memo(() => {
               <S.CheckWrap>
                 <S.CheckBox //
                   type='checkbox'
-                  icon={"checkOn"}
                 />
                 <S.Check />
               </S.CheckWrap>
@@ -27,7 +26,7 @@ const GoodsGuide = memo(() => {
           </G.CheckWrap>
           <G.ItemRight>
             <G.Thumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb>
             <G.ItemTxts>
               <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세요 12345</G.ItemTitle>
@@ -63,20 +62,27 @@ const GoodsGuide = memo(() => {
         </G.ItemTop>
         <G.ItemBottom>
           <B.BtnDelete>
-            <B.BtnIcon icon={"deleteGray"} />
+            <B.BtnIcon
+              style={{ backgroundImage: `url(${imgRoutes.common}/ic_delete_gary2.png)` }}
+            />
             삭제
           </B.BtnDelete>
           <G.OrderWrap>
             <G.OrderTxt>주문수량</G.OrderTxt>
             <B.Count>
               <B.CountBtn type='button'>
-                <B.CountIcon icon={"minusGray"} />
+                <B.CountIcon
+                  style={{ backgroundImage: `url(${imgRoutes.common}/ic_minus_black.png)` }}
+                  option={true}
+                />
               </B.CountBtn>
               <B.InputWrap>
                 <B.Input type='number' />
               </B.InputWrap>
               <B.CountBtn type='button'>
-                <B.CountIcon icon={"plusBlack"} />
+                <B.CountIcon
+                  style={{ backgroundImage: `url(${imgRoutes.common}/ic_plus_black.png)` }}
+                />
               </B.CountBtn>
             </B.Count>
           </G.OrderWrap>
@@ -87,7 +93,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb>
             <G.ItemTxts>
               <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세요 12345</G.ItemTitle>
@@ -126,7 +132,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb>
             <G.ItemTxts>
               <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세요 12345</G.ItemTitle>
@@ -164,7 +170,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb>
             <G.ItemTxts>
               <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세요 12345</G.ItemTitle>
@@ -206,7 +212,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb>
             <G.ItemTxts>
               <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세요 12345</G.ItemTitle>
@@ -223,7 +229,7 @@ const GoodsGuide = memo(() => {
       <G.ItemWrap>
         <G.ItemRight className='center'>
           <G.Thumb>
-            <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+            <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
           </G.Thumb>
           <G.ItemTxts>
             <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세</G.ItemTitle>
@@ -241,7 +247,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb>
             <G.ItemTxts>
               <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세요 12345</G.ItemTitle>
@@ -280,7 +286,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb>
             <G.ItemTxts>
               <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세요 12345</G.ItemTitle>
@@ -297,7 +303,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb>
             <G.ItemTxts>
               <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세요 12345</G.ItemTitle>
@@ -313,7 +319,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb>
             <G.ItemTxts>
               <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세요 12345</G.ItemTitle>
@@ -350,13 +356,18 @@ const GoodsGuide = memo(() => {
             <G.OrderTxt>반품수량</G.OrderTxt>
             <B.Count>
               <B.CountBtn type='button'>
-                <B.CountIcon icon={"minusGray"} />
+                <B.CountIcon
+                  style={{ backgroundImage: `url(${imgRoutes.common}/ic_minus_black.png)` }}
+                  option={true}
+                />
               </B.CountBtn>
               <B.InputWrap>
                 <B.Input type='number' />
               </B.InputWrap>
               <B.CountBtn type='button'>
-                <B.CountIcon icon={"plusBlack"} />
+                <B.CountIcon
+                  style={{ backgroundImage: `url(${imgRoutes.common}/ic_plus_black.png)` }}
+                />
               </B.CountBtn>
             </B.Count>
           </G.OrderWrap>
@@ -367,7 +378,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb>
             <G.ItemTxts>
               <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세요 12345</G.ItemTitle>
@@ -404,13 +415,18 @@ const GoodsGuide = memo(() => {
             <G.OrderTxt>반품수량</G.OrderTxt>
             <B.Count>
               <B.CountBtn type='button'>
-                <B.CountIcon icon={"minusGray"} />
+                <B.CountIcon
+                  style={{ backgroundImage: `url(${imgRoutes.common}/ic_minus_black.png)` }}
+                  option={true}
+                />
               </B.CountBtn>
               <B.InputWrap>
                 <B.Input type='number' />
               </B.InputWrap>
               <B.CountBtn type='button'>
-                <B.CountIcon icon={"plusBlack"} />
+                <B.CountIcon
+                  style={{ backgroundImage: `url(${imgRoutes.common}/ic_plus_black.png)` }}
+                />
               </B.CountBtn>
             </B.Count>
           </G.OrderWrap>
@@ -424,7 +440,6 @@ const GoodsGuide = memo(() => {
               <S.CheckWrap>
                 <S.CheckBox //
                   type='checkbox'
-                  icon={"checkOn"}
                 />
                 <S.Check />
               </S.CheckWrap>
@@ -432,7 +447,7 @@ const GoodsGuide = memo(() => {
           </G.CheckWrap>
           <G.ItemRight>
             <G.Thumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb>
             <G.ItemTxts>
               <G.ItemTitle>제품명을 입력해주세요 제품명을 입력해주세요 12345</G.ItemTitle>
@@ -470,7 +485,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb2>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb2>
             <G.ItemTxts2>
               <G.ItemTime>오늘 11:30</G.ItemTime>
@@ -489,7 +504,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb2>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb2>
             <G.ItemTxts2>
               <G.ItemTime>5월 15일 (수) 17:00</G.ItemTime>
@@ -511,7 +526,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.Thumb2>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb2>
             <G.ItemTxts2>
               <G.TxtInner>
@@ -529,7 +544,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop>
           <G.ItemRight>
             <G.PThumb>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.PThumb>
             <G.ItemTxts>
               {/* <G.PStoreName>쇼핑온보고</G.PStoreName> */}
@@ -555,7 +570,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop2>
           <G.ItemLeft>
             <G.Thumb3>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb3>
           </G.ItemLeft>
           <G.ItemRight2>
@@ -585,7 +600,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop2>
           <G.ItemLeft>
             <G.Thumb3>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.Thumb3>
           </G.ItemLeft>
           <G.ItemRight2>
@@ -616,7 +631,7 @@ const GoodsGuide = memo(() => {
         <G.ItemTop2>
           <G.ItemLeft>
             <G.ThumbEnd>
-              <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+              <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
             </G.ThumbEnd>
           </G.ItemLeft>
           <G.ItemRight2>
@@ -640,17 +655,17 @@ const GoodsGuide = memo(() => {
 
       <Wraps>
         <G.StoreWrap>
-          <G.HomeIcon icon={"homeGray"} />
+          <G.HomeIcon />
           <G.StoreName>플레이보고</G.StoreName>
         </G.StoreWrap>
 
         <G.StoreWrap>
-          <G.HomeIcon icon={"homePurple"} />
+          <G.HomePurpleIcon />
           <G.StoreName>플레이보고</G.StoreName>
         </G.StoreWrap>
 
         <G.StoreWrap>
-          <G.HomeIcon icon={"homePurple"} />
+          <G.HomePurpleIcon />
           <G.StoreName>플레이보고</G.StoreName>
           <G.ShippingFee>배송비 : 3,000원</G.ShippingFee>
         </G.StoreWrap>
@@ -740,7 +755,7 @@ const GoodsGuide = memo(() => {
             <G.DelModal DelSee={false}>
               <G.DelModalTop>
                 <G.DelModalTit>업체별 배송비 안내</G.DelModalTit>
-                <G.DelClose icon={"closeBlack"} />
+                <G.DelClose />
               </G.DelModalTop>
               <G.DelModalTexts>
                 <G.DelModalText>
@@ -790,7 +805,7 @@ const GoodsGuide = memo(() => {
             <G.DelModal DelSee={true}>
               <G.DelModalTop>
                 <G.DelModalTit>업체별 배송비 안내</G.DelModalTit>
-                <G.DelClose icon={"closeBlack"} />
+                <G.DelClose />
               </G.DelModalTop>
               <G.DelModalTexts>
                 <G.DelModalText>
@@ -855,7 +870,7 @@ const GoodsGuide = memo(() => {
             <G.DelModal DelSee={false}>
               <G.DelModalTop>
                 <G.DelModalTit>업체별 배송비 안내</G.DelModalTit>
-                <G.DelClose icon={"closeBlack"} />
+                <G.DelClose />
               </G.DelModalTop>
               <G.DelModalTexts>
                 <G.DelModalText>
@@ -984,10 +999,10 @@ const GoodsGuide = memo(() => {
             <G.TxtsLeftLeft></G.TxtsLeftLeft>
             <G.ImgLeftRight>
               <G.ImgWrap>
-                <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+                <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
               </G.ImgWrap>
               <G.ImgWrap>
-                <G.Img src={`url(${imgRoutes.thumbnail}/profile_default.png)`} alt='상품' />
+                <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
               </G.ImgWrap>
             </G.ImgLeftRight>
           </G.TxtsLeftItem>

@@ -301,6 +301,7 @@ export const CloseBtn = styled.button`
   width: 18px;
   height: 19px;
   color: transparent;
+  background: url("${imgRoutes.common}/ic_close_black.png") no-repeat center/contain;
   text-indent: -9999px;
 `;
 
@@ -385,22 +386,24 @@ export const ItemState = styled.p`
 export const CartBtn = styled.button`
   width: 34px;
   height: 34px;
+  background: url("${imgRoutes.common}/ic_cart_purple.png") no-repeat center/contain;
 `;
 
 export const AlarmBtn = styled.button`
   width: 36px;
   height: 36px;
+  background: ${C.GF1F3F5} url("${imgRoutes.common}/ic_alarm_gray.png") no-repeat center/23px 23px;
   border-radius: 100%;
 `;
 
 export const AlarmBtnActive = styled(AlarmBtn)`
   width: 36px;
   height: 36px;
+  background: ${C.BEDE9FF} url("${imgRoutes.common}/ic_alarm_purple.png") no-repeat center/23px 23px;
   border-radius: 100%;
 `;
 
 export const AlarmCount = styled.p`
-  /* margin-top: 5px; */
   font-size: ${F.SMALL};
   color: ${C.G4A5561};
   font-weight: 600;
@@ -424,6 +427,11 @@ export const HomeIcon = styled.i`
   height: 14px;
   margin-right: 6px;
   vertical-align: middle;
+  background: url("${imgRoutes.common}/ic_home_gray.png") no-repeat center/contain;
+`;
+
+export const HomePurpleIcon = styled(HomeIcon)`
+  background: url("${imgRoutes.common}/ic_home_purple.png") no-repeat center/contain;
 `;
 
 export const StoreName = styled.p`
@@ -481,6 +489,7 @@ export const StoreDate = styled.span`
 export const StoreBtn = styled.button`
   width: 8px;
   height: 13px;
+  background: url("${imgRoutes.common}/ic_arrow_black_2.png") no-repeat center/contain;
 `;
 
 export const GoodsWrap = styled.div`
@@ -508,18 +517,23 @@ export const GoodsTxtPurple = styled.span`
 `;
 
 export const GoodsBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: auto;
   height: 100%;
   padding-right: 18px;
   font-size: ${F.SPRIMARY};
   color: ${C.PVOGO};
   font-weight: 700;
+  background: url("${imgRoutes.common}/ic_arrow_purple.png") no-repeat 100% 53%/16px 22px;
 `;
 
 export const GoodsGrayBtn = styled(GoodsBtn)`
   font-size: ${F.SPRIMARY};
   color: ${C.G4A5561};
   font-weight: 700;
+  background: url("${imgRoutes.common}/ic_arrow_black.png") no-repeat 100% 53%/18px 24px;
 `;
 
 export const PayContent = styled.div`
@@ -538,7 +552,7 @@ export const Item = styled.div`
   }
 `;
 
-export const Left = styled.p`
+export const Left = styled.div`
   display: flex;
   align-items: center;
   font-size: ${F.MEDIUM};
@@ -553,7 +567,9 @@ export const LeftBold = styled(Left)`
   font-weight: 800;
 `;
 
-export const Right = styled.p`
+export const Right = styled.div`
+  display: flex;
+  align-items: center;
   font-size: ${F.MEDIUM};
   color: ${C.G4A5561};
   font-weight: 400;
@@ -595,6 +611,7 @@ export const DeliveryBtn = styled.button`
   width: 16px;
   height: 16px;
   margin-left: 5px;
+  background: url("${imgRoutes.common}/ic_invalid_gray.png") no-repeat center/contain;
 `;
 
 // 배송비 팝업
@@ -651,8 +668,9 @@ export const DelClose = styled.button`
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
+  width: 19px;
+  height: 19px;
+  background: url("${imgRoutes.common}/ic_close_black.png") no-repeat center/contain;
 `;
 
 export const TxtsWrap = styled.div`
@@ -916,6 +934,7 @@ export const CalenderCount = styled.p`
     display: inline-block;
     width: 18px;
     height: 18px;
+    background: url("${imgRoutes.common}/ic_alarm_gray.png") no-repeat center/contain;
     margin-right: 2px;
   }
 `;
@@ -924,6 +943,7 @@ export const CalenderView = styled(CalenderCount)`
   margin-left: 6px;
   &::before {
     margin-right: 3px;
+    background: url("${imgRoutes.common}/ic_view_gray.png") no-repeat center/contain;
   }
 `;
 
@@ -942,6 +962,7 @@ export const AlarmCount2 = styled(AlarmCount)`
     content: "";
     width: 18px;
     height: 18px;
+    background: url("${imgRoutes.common}/ic_alarm_gray.png") no-repeat center/contain;
     margin-right: 2px;
   }
 `;

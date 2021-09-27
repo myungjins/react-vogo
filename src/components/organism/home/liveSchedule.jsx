@@ -48,80 +48,78 @@ export const SPagination = styled.div`
 
 const LiveSchedule = memo(() => {
   return (
-    <>
-      <Container>
-        <SSwiper
-          className='banner__swiper'
-          spaceBetween={0}
-          slidesPerView={1}
-          pagination={{
-            el: ".banner__pagination",
-            clickable: true,
-          }}
-          navigation={true}
-        >
-          <SPagination className='banner__pagination' />
-          <SwiperSlide>
-            <SBanner>
-              <G.ItemWrap>
-                <G.ItemTop>
-                  <G.ItemRight>
-                    <G.Thumb2>
-                      <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
-                    </G.Thumb2>
-                    <G.ItemTxts2>
-                      <G.TxtInner>
-                        <G.ItemTime>오늘 11:30</G.ItemTime>
-                        <G.AlarmCount2>1.5K</G.AlarmCount2>
-                      </G.TxtInner>
-                      <G.ItemTitle2>VIPS로 만드는 우리집 레스토랑</G.ItemTitle2>
-                      <G.Name>NnF</G.Name>
-                    </G.ItemTxts2>
-                  </G.ItemRight>
-                </G.ItemTop>
-              </G.ItemWrap>
-              <G.ItemWrap>
-                <G.ItemTop>
-                  <G.ItemRight>
-                    <G.Thumb2>
-                      <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
-                    </G.Thumb2>
-                    <G.ItemTxts2>
-                      <G.TxtInner>
-                        <G.ItemTime>오늘 11:30</G.ItemTime>
-                        <G.AlarmCount2>1.5K</G.AlarmCount2>
-                      </G.TxtInner>
-                      <G.ItemTitle2>VIPS로 만드는 우리집 레스토랑</G.ItemTitle2>
-                      <G.Name>NnF</G.Name>
-                    </G.ItemTxts2>
-                  </G.ItemRight>
-                </G.ItemTop>
-              </G.ItemWrap>
-              <G.ItemWrap>
-                <G.ItemTop>
-                  <G.ItemRight>
-                    <G.Thumb2>
-                      <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
-                    </G.Thumb2>
-                    <G.ItemTxts2>
-                      <G.TxtInner>
-                        <G.ItemTime>오늘 11:30</G.ItemTime>
-                        <G.AlarmCount2>1.5K</G.AlarmCount2>
-                      </G.TxtInner>
-                      <G.ItemTitle2>VIPS로 만드는 우리집 레스토랑</G.ItemTitle2>
-                      <G.Name>NnF</G.Name>
-                    </G.ItemTxts2>
-                  </G.ItemRight>
-                </G.ItemTop>
-              </G.ItemWrap>
-            </SBanner>
-          </SwiperSlide>
-          <SwiperSlide>
-            <SBanner></SBanner>
-          </SwiperSlide>
-        </SSwiper>
-      </Container>
-    </>
+    <Container>
+      <SSwiper
+        className='banner__swiper'
+        spaceBetween={0}
+        slidesPerView={1}
+        pagination={{
+          el: ".banner__pagination",
+          clickable: true,
+        }}
+        navigation={true}
+      >
+        <SPagination className='banner__pagination' />
+        <SwiperSlide>
+          <SBanner>
+            <G.ItemWrap>
+              <G.ItemTop>
+                <G.ItemRight>
+                  <G.Thumb2>
+                    <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
+                  </G.Thumb2>
+                  <G.ItemTxts2>
+                    <G.TxtInner>
+                      <G.ItemTime>오늘 11:30</G.ItemTime>
+                      <G.AlarmCount2>1.5K</G.AlarmCount2>
+                    </G.TxtInner>
+                    <G.ItemTitle2>VIPS로 만드는 우리집 레스토랑</G.ItemTitle2>
+                    <G.Name>NnF</G.Name>
+                  </G.ItemTxts2>
+                </G.ItemRight>
+              </G.ItemTop>
+            </G.ItemWrap>
+            <G.ItemWrap>
+              <G.ItemTop>
+                <G.ItemRight>
+                  <G.Thumb2>
+                    <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
+                  </G.Thumb2>
+                  <G.ItemTxts2>
+                    <G.TxtInner>
+                      <G.ItemTime>오늘 11:30</G.ItemTime>
+                      <G.AlarmCount2>1.5K</G.AlarmCount2>
+                    </G.TxtInner>
+                    <G.ItemTitle2>VIPS로 만드는 우리집 레스토랑</G.ItemTitle2>
+                    <G.Name>NnF</G.Name>
+                  </G.ItemTxts2>
+                </G.ItemRight>
+              </G.ItemTop>
+            </G.ItemWrap>
+            <G.ItemWrap>
+              <G.ItemTop>
+                <G.ItemRight>
+                  <G.Thumb2>
+                    <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
+                  </G.Thumb2>
+                  <G.ItemTxts2>
+                    <G.TxtInner>
+                      <G.ItemTime>오늘 11:30</G.ItemTime>
+                      <G.AlarmCount2>1.5K</G.AlarmCount2>
+                    </G.TxtInner>
+                    <G.ItemTitle2>VIPS로 만드는 우리집 레스토랑</G.ItemTitle2>
+                    <G.Name>NnF</G.Name>
+                  </G.ItemTxts2>
+                </G.ItemRight>
+              </G.ItemTop>
+            </G.ItemWrap>
+          </SBanner>
+        </SwiperSlide>
+        <SwiperSlide>
+          <SBanner></SBanner>
+        </SwiperSlide>
+      </SSwiper>
+    </Container>
   );
 });
 

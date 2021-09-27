@@ -1025,3 +1025,75 @@ export const GiftCardTxtPurple = styled(GiftCardTxt2)`
   color: ${C.PVOGO};
   font-weight: 600;
 `;
+
+// VOGO싶다
+export const VogoItem = styled.div`
+  overflow: hidden;
+  width: 324px;
+  min-width: 324px;
+  margin: 0;
+  border-radius: 4px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  &:not(:last-of-type) {
+    margin-right: 10px;
+  }
+`;
+
+export const VogoImgWrap = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 162px;
+  cursor: pointer;
+`;
+
+export const VogoImg = styled.img`
+  width: 162px;
+  height: 162px;
+  object-fit: cover;
+`;
+
+export const TxtWrap = styled.div`
+  width: 100%;
+  height: 104px;
+  padding: 10px 16px 20px 16px;
+`;
+
+export const VTxt = styled.p`
+  overflow: hidden;
+  display: -webkit-box;
+  width: 85.8%;
+  height: 48px;
+  padding-bottom: 8px;
+  font-size: ${F.XMEDIUM};
+  color: ${C.CPRIMARY};
+  font-weight: 600;
+  letter-spacing: -0.6px;
+  line-height: 23px;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+`;
+
+export const VNumber = styled.p`
+  display: flex;
+  align-items: center;
+  font-size: ${F.SPRIMARY};
+  color: ${C.G858F9C};
+  font-weight: 500;
+  letter-spacing: -0.33px;
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 2px;
+    background: url("${imgRoutes.common}/ic_people_gray.png") no-repeat center/contain;
+  }
+`;
+
+export const VBold = styled.span`
+  font-weight: bold;
+`;

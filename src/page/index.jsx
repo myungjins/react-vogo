@@ -4,6 +4,7 @@ import React from "react";
 import Category from "components/organism/home/category";
 import LiveHotDeal from "components/organism/home/liveHotDeal";
 import LiveSchedule from "components/organism/home/liveSchedule";
+import VogoLook from "components/organism/home/vogoLook";
 
 const Index = (props) => (
   <>
@@ -13,6 +14,8 @@ const Index = (props) => (
     <LiveHotDeal />
     <Category />
     <LiveSchedule />
+    <Category />
+    <VogoLook />
   </>
 );
 

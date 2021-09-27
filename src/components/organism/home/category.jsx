@@ -34,12 +34,10 @@ export const Btn = styled.button`
 
 const Category = () => {
   return (
-    <>
-      <Title>
-        <TitleTxt>LIVE 핫딜</TitleTxt>
-        <Btn>더보기</Btn>
-      </Title>
-    </>
+    <Title>
+      <TitleTxt>LIVE 핫딜</TitleTxt>
+      <Btn>더보기</Btn>
+    </Title>
   );
 };
 

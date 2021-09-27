@@ -71,38 +71,36 @@ export const SPagination = styled.div`
 
 export default function Banner() {
   return (
-    <>
-      <SSwiper
-        className='banner__swiper'
-        spaceBetween={0}
-        slidesPerView={1}
-        pagination={{
-          type: "fraction",
-          el: ".banner__pagination",
-        }}
-        navigation={true}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-      >
-        <SPagination className='banner__pagination' />
-        <SwiperSlide>
-          <SBanner>
-            <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
-          </SBanner>
-        </SwiperSlide>
-        <SwiperSlide>
-          <SBanner>
-            <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
-          </SBanner>
-        </SwiperSlide>
-        <SwiperSlide>
-          <SBanner>
-            <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
-          </SBanner>
-        </SwiperSlide>
-      </SSwiper>
-    </>
+    <SSwiper
+      className='banner__swiper'
+      spaceBetween={0}
+      slidesPerView={1}
+      pagination={{
+        type: "fraction",
+        el: ".banner__pagination",
+      }}
+      navigation={true}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
+    >
+      <SPagination className='banner__pagination' />
+      <SwiperSlide>
+        <SBanner>
+          <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
+        </SBanner>
+      </SwiperSlide>
+      <SwiperSlide>
+        <SBanner>
+          <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
+        </SBanner>
+      </SwiperSlide>
+      <SwiperSlide>
+        <SBanner>
+          <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
+        </SBanner>
+      </SwiperSlide>
+    </SSwiper>
   );
 }

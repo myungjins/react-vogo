@@ -47,15 +47,13 @@ const Cart = styled.button`
 
 const Header = () => {
   return (
-    <>
-      <AppHeader color={true}>
-        <Logo></Logo>
-        <Btns>
-          <Search></Search>
-          <Cart></Cart>
-        </Btns>
-      </AppHeader>
-    </>
+    <AppHeader color={true}>
+      <Logo></Logo>
+      <Btns>
+        <Search></Search>
+        <Cart></Cart>
+      </Btns>
+    </AppHeader>
   );
 };
 

@@ -1049,6 +1049,19 @@ const GoodsGuide = memo(() => {
         </G.TxtsLeftWrap>
       </Wraps>
       {/*  */}
+
+      <G.VogoItem>
+        <G.VogoImgWrap>
+          <G.VogoImg src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
+          <G.VogoImg src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
+        </G.VogoImgWrap>
+        <G.TxtWrap>
+          <G.VTxt>크림멜로우 초코 모찌 마시멜로 VS 칵투스 시나몬 크림 바스켓</G.VTxt>
+          <G.VNumber>
+            <G.VBold>132</G.VBold>명 참여중
+          </G.VNumber>
+        </G.TxtWrap>
+      </G.VogoItem>
     </>
   );
 });

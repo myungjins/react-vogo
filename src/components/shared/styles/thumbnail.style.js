@@ -20,8 +20,12 @@ export const ThumbnailBox = styled.div`
   max-height: 510px;
   width: 100%;
   height: 75vw;
-  padding: 8px;
+  padding: 10px 8px;
   border-radius: 4px;
+`;
+
+export const ThumbnailSmallBox = styled(ThumbnailBox)`
+  padding: 6px;
 `;
 
 export const Thumbnail = styled.div`
@@ -75,7 +79,7 @@ export const LiveViewerBox = styled.div`
   display: flex;
   align-items: center;
   height: 20px;
-  padding: 0 7px;
+  padding: 0 6px 0 3px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.4);
 `;
@@ -86,6 +90,11 @@ export const LiveViewer = styled.i`
   background: url("${imgRoutes.common}/ic_live_viewer.png") no-repeat center/contain;
 `;
 
+export const LiveViewerSmall = styled(LiveViewer)`
+  width: 16px;
+  height: 16px;
+`;
+
 export const LiveViewerNum = styled.span`
   font-family: ${ROBOTO};
   font-size: ${F.Xsmall};
@@ -94,12 +103,20 @@ export const LiveViewerNum = styled.span`
   line-height: 1;
 `;
 
+export const LiveViewerNumSmall = styled(LiveViewerNum)`
+  font-size: 10px;
+`;
+
 export const Time = styled.p`
   font-size: ${F.SPRIMARY};
   color: ${C.WHITE};
   font-weight: 500;
   font-family: ${ROBOTO};
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+`;
+
+export const TimeSmall = styled(Time)`
+  font-size: ${F.Xsmall};
 `;
 
 export const GoodsBox = styled.div`
@@ -133,6 +150,10 @@ export const GoodsInfo = styled.div`
   color: ${C.WHITE};
 `;
 
+export const GoodsInfo2 = styled(GoodsInfo)`
+  width: 100%;
+`;
+
 export const GoodsName = styled.p`
   overflow: hidden;
   width: 100%;
@@ -144,6 +165,11 @@ export const GoodsName = styled.p`
   letter-spacing: -0.4px;
   white-space: nowrap;
   text-overflow: ellipsis;
+`;
+
+export const GoodsNameSmall = styled(GoodsName)`
+  margin-bottom: 5px;
+  font-size: ${F.SMALL};
 `;
 
 export const GoodsPrices = styled.div`
@@ -179,9 +205,13 @@ export const SellerBox = styled.div``;
 export const Seller = styled.div`
   display: flex;
   align-items: center;
-  margin: 10px 0 5px;
+  margin: 10px 0 2px;
   font-size: ${F.Xsmall};
   font-weight: bold;
+`;
+
+export const SellerSmall = styled(Seller)`
+  font-size: 11px;
 `;
 
 export const SellerProfile = styled.div`
@@ -206,6 +236,10 @@ export const SellerTitle = styled.p`
   word-wrap: break-word;
   font-size: ${F.SPRIMARY};
   line-height: 1.38;
+`;
+
+export const SellerTitleSmall = styled(SellerTitle)`
+  font-size: ${F.SMALL};
 `;
 
 export const OptionBox = styled.div`

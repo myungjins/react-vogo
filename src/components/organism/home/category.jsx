@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import * as C from "components/shared/common/colors";
 import * as F from "components/shared/common/fontSize";
+import { imgRoutes } from "components/shared/common/images";
 
 export const Title = styled.div`
   display: flex;
@@ -27,7 +28,7 @@ export const Btn = styled.button`
     display: inline-block;
     width: 18px;
     height: 24px;
-    background: url("assets/images/common/ic_arrow_black.png") no-repeat center/contain;
+    background: url("${imgRoutes.common}/ic_arrow_black.png");
   }
 `;
 

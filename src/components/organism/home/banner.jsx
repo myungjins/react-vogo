@@ -6,6 +6,7 @@ import { Xsmall } from "components/shared/common/fontSize";
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
+import { imgRoutes } from "components/shared/common/images";
 SwiperCore.use([Pagination, Autoplay]);
 
 const SSwiper = styled(Swiper)`
@@ -64,7 +65,7 @@ export const SPagination = styled.div`
     width: 10px;
     height: 10px;
     margin-left: 4px;
-    background: url("assets/images/common/ic_plus_white.png") center center / contain no-repeat;
+    background: url("${imgRoutes.common}/ic_plus_white.png") center center/contain no-repeat;
   }
 `;
 
@@ -88,17 +89,17 @@ export default function Banner() {
         <SPagination className='banner__pagination' />
         <SwiperSlide>
           <SBanner>
-            <Img src='assets/images/banner/default.png' alt='default img' />
+            <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
           </SBanner>
         </SwiperSlide>
         <SwiperSlide>
           <SBanner>
-            <Img src='assets/images/banner/default.png' alt='default img' />
+            <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
           </SBanner>
         </SwiperSlide>
         <SwiperSlide>
           <SBanner>
-            <Img src='assets/images/banner/default.png' alt='default img' />
+            <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
           </SBanner>
         </SwiperSlide>
       </SSwiper>

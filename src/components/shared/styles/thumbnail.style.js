@@ -6,7 +6,6 @@ import { imgRoutes } from "components/shared/common/images";
 
 export const ThumbnailWrap = styled.div`
   width: 49%;
-  margin-top: 20px;
   &:not(:first-child) {
     margin-left: 2%;
   }
@@ -137,7 +136,7 @@ export const GoodsInfo = styled.div`
 export const GoodsName = styled.p`
   overflow: hidden;
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   font-size: ${F.SPRIMARY};
   color: ${C.WHITE};
   font-weight: bold;

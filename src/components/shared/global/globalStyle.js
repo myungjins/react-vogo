@@ -101,6 +101,11 @@ const GlobalStyle = createGlobalStyle`
         word-break: break-all;
     }
 
+    h1{
+        margin: 0;
+        font-size: inherit;
+    }
+
     p{
         word-break: keep-all;
     }

@@ -1,3 +1,4 @@
+import { imgRoutes } from "components/shared/common/images";
 import React from "react";
 import styled from "styled-components";
 
@@ -21,7 +22,7 @@ const Logo = styled.div`
   display: inline-block;
   width: 90px;
   height: 21px;
-  background: url("assets/images/common/logo.png") no-repeat center/contain;
+  background: url("${imgRoutes.common}/logo.png") no-repeat center/contain;
 `;
 
 const Btns = styled.div`
@@ -32,7 +33,7 @@ const Btns = styled.div`
 const Search = styled.button`
   width: 24px;
   height: 24px;
-  background: url("assets/images/common/ic_search_shadow.png") no-repeat center/contain;
+  background: url("${imgRoutes.common}/ic_search_shadow.png") no-repeat center/contain;
   border: none;
 `;
 
@@ -40,7 +41,7 @@ const Cart = styled.button`
   width: 27px;
   height: 27px;
   margin-left: 16px;
-  background: url("assets/images/common/ic_cart_white_shadow.png") no-repeat center/contain;
+  background: url("${imgRoutes.common}/ic_cart_white_shadow.png") no-repeat center/contain;
   border: none;
 `;
 

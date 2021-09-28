@@ -6,6 +6,7 @@ import LiveSchedule from "components/organism/home/liveSchedule";
 import VogoLook from "components/organism/home/vogoLook";
 import CategoryGoodsDetail from "components/organism/home/categoryGoodsDetail";
 import Footer from "components/footer/footer";
+import Tabbar from "components/tab/tabbar";
 
 const Index = (props) => (
   <>
@@ -16,6 +17,7 @@ const Index = (props) => (
     <VogoLook />
     <CategoryGoodsDetail />
     <Footer />
+    <Tabbar />
   </>
 );
 

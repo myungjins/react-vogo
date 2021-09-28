@@ -14,6 +14,10 @@ const Container = styled.div`
   border-bottom: 8px solid ${C.GF1F3F5};
 `;
 
+export const MainTitle = styled(G.MainTitle)`
+  padding-bottom: 8px;
+`;
+
 const SSwiper = styled(Swiper)`
   position: relative;
   padding-bottom: 43px;
@@ -49,6 +53,10 @@ export const SPagination = styled.div`
 const LiveSchedule = memo(() => {
   return (
     <Container>
+      <MainTitle>
+        <G.TitleTxt>LIVE 예고</G.TitleTxt>
+        <G.Btn>더보기</G.Btn>
+      </MainTitle>
       <SSwiper
         className='banner__swiper'
         spaceBetween={0}

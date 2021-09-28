@@ -230,16 +230,16 @@ export const SellerName = styled.div``;
 export const SellerTitle = styled.p`
   overflow: hidden;
   display: -webkit-box;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  word-wrap: break-word;
   font-size: ${F.SPRIMARY};
-  line-height: 1.38;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  word-break: break-all;
 `;
 
 export const SellerTitleSmall = styled(SellerTitle)`
   font-size: ${F.SMALL};
+  -webkit-line-clamp: 2;
 `;
 
 export const OptionBox = styled.div`

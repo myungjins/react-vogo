@@ -1062,6 +1062,20 @@ const GoodsGuide = memo(() => {
           </G.VNumber>
         </G.TxtWrap>
       </G.VogoItem>
+
+      <G.MainTitle>
+        <G.TitleTxt>LIVE 핫딜</G.TitleTxt>
+      </G.MainTitle>
+
+      <G.MainTitle>
+        <G.TitleTxt>LIVE 예고</G.TitleTxt>
+        <G.Btn>더보기</G.Btn>
+      </G.MainTitle>
+
+      <G.MainTitle>
+        <G.TitleTxtQuestion>VOGO싶다</G.TitleTxtQuestion>
+        <G.Btn>더보기</G.Btn>
+      </G.MainTitle>
     </>
   );
 });

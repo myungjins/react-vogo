@@ -22,7 +22,7 @@ const Logo = styled.div`
   display: inline-block;
   width: 90px;
   height: 21px;
-  background: url("${imgRoutes.common}/logo.png") no-repeat center/contain;
+  background: url("${imgRoutes.common}/logo_purple.png") no-repeat center/contain;
 `;
 
 const Btns = styled.div`

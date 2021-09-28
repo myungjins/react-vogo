@@ -1097,3 +1097,46 @@ export const VNumber = styled.p`
 export const VBold = styled.span`
   font-weight: bold;
 `;
+
+// 메인 카테고리
+export const MainTitle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0 20px;
+`;
+
+export const TitleTxt = styled.h1`
+  font-size: ${F.LARGE};
+  color: ${C.CPRIMARY};
+  font-weight: bold;
+`;
+
+export const TitleTxtQuestion = styled(TitleTxt)`
+  display: flex;
+  align-items: center;
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-left: 8px;
+    background: url("${imgRoutes.common}/ic_question_gray.png") no-repeat center/contain;
+    cursor: pointer;
+  }
+`;
+
+export const Btn = styled.button`
+  display: flex;
+  align-items: center;
+  font-size: ${F.SPRIMARY};
+  color: ${C.G343A40};
+  font-weight: 400;
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 24px;
+    background: url("${imgRoutes.common}/ic_arrow_black.png");
+  }
+`;

@@ -4,13 +4,13 @@ import GoodsGuide from "components/shared/guide/goods.guide";
 import Thumbnailguide from "components/shared/guide/thumbnail.guide";
 import React from "react";
 import { Route } from "react-router";
-import Index from "../page";
+import Main from "../page/main";
 
 const Routes = () => {
   return (
     <>
       {/* home */}
-      <Route path='/' component={Index} exact={true} />
+      <Route path='/' exact component={Main} />
 
       {/* guide */}
       <Route path='/guide/thumbnail' component={Thumbnailguide} exact={true} />

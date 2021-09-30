@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import * as C from "components/shared/common/colors";
 import { ROBOTO } from "components/shared/common/fontFamily";
@@ -38,7 +38,7 @@ export const SBanner = styled.div`
 export const Img = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 `;
 
 export const SPagination = styled.div`
@@ -69,38 +69,60 @@ export const SPagination = styled.div`
   }
 `;
 
-export default function Banner() {
+const Banner = () => {
+  const [banner, setBanner] = useState([]);
+  console.log(banner);
+
+  useEffect(() => {
+    const myHeaders = new Headers();
+    myHeaders.append("Cookie", "SCOUTER=xkhvir0ta5f1e");
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://devapi.vogoplay.com/api/main/banner?Key=AIzaSyCkr0UI65tFw4YmpfHl9bPPwbS4Ae6I4zA",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setBanner(result))
+      .catch((error) => console.log("error", error));
+  }, []);
+
   return (
-    <SSwiper
-      className='banner__swiper'
-      spaceBetween={0}
-      slidesPerView={1}
-      pagination={{
-        type: "fraction",
-        el: ".banner__pagination",
-      }}
-      navigation={true}
-      autoplay={{
-        delay: 5000,
-        disableOnInteraction: false,
-      }}
-    >
-      <SPagination className='banner__pagination' />
-      <SwiperSlide>
-        <SBanner>
-          <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
-        </SBanner>
-      </SwiperSlide>
-      <SwiperSlide>
-        <SBanner>
-          <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
-        </SBanner>
-      </SwiperSlide>
-      <SwiperSlide>
-        <SBanner>
-          <Img src={`${imgRoutes.banner}/default.png`} alt='default img' />
-        </SBanner>
-      </SwiperSlide>
-    </SSwiper>
+    <div>
+      {banner.length !== 0 && (
+        <SSwiper
+          className='banner__swiper'
+          spaceBetween={0}
+          slidesPerView={1}
+          pagination={{
+            type: "fraction",
+            el: ".banner__pagination",
+          }}
+          navigation={true}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+        >
+          <SPagination className='banner__pagination' />
+
+          {banner.data.map((item, idx) => (
+            <SwiperSlide key={item.idx}>
+              <SBanner>
+                <Img src={`${item.imgBanner}`} alt='img' />
+                {/* {console.log(item)} */}
+              </SBanner>
+            </SwiperSlide>
+          ))}
+        </SSwiper>
+      )}
+    </div>
   );
-}
+};
+
+export default Banner;

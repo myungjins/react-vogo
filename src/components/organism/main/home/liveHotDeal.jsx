@@ -61,7 +61,7 @@ const LiveHotDeal = () => {
       .then((response) => response.json())
       .then((result) => setLiveHotDeal(result))
       .catch((error) => console.log("error", error));
-  });
+  }, []);
 
   return (
     <div>

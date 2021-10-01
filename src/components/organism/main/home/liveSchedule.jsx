@@ -1,11 +1,10 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import styled from "styled-components";
 import * as C from "components/shared/common/colors";
 import * as G from "components/shared/styles/goods.style";
 import SwiperCore, { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
-import { imgRoutes } from "components/shared/common/images";
 SwiperCore.use([Pagination]);
 
 const Container = styled.div`
@@ -57,83 +56,78 @@ export const SPagination = styled.div`
 `;
 
 const LiveSchedule = memo(() => {
+  const [liveSchedule, setLiveSchedule] = useState([]);
+  console.log(liveSchedule);
+
+  useEffect(() => {
+    const myHeaders = new Headers();
+    myHeaders.append("Cookie", "SCOUTER=xkhvir0ta5f1e");
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://devapi.vogoplay.com/api/main/pre_livecast?Key=AIzaSyCkr0UI65tFw4YmpfHl9bPPwbS4Ae6I4zA",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setLiveSchedule(result))
+      .catch((error) => console.log("error", error));
+  }, []);
+
   return (
-    <Container>
-      <MainTitle>
-        <G.TitleTxt>LIVE 예고</G.TitleTxt>
-        <G.Btn>더보기</G.Btn>
-      </MainTitle>
-      <SSwiper
-        className='banner__swiper'
-        spaceBetween={0}
-        slidesPerView={1}
-        pagination={{
-          el: ".banner__pagination",
-          clickable: true,
-        }}
-        navigation={true}
-      >
-        <SPagination className='banner__pagination' />
-        <SwiperSlide>
-          <SBanner>
-            <G.ItemWrap>
-              <G.ItemTop>
-                <G.ItemRight>
-                  <G.Thumb2>
-                    <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
-                  </G.Thumb2>
-                  <G.ItemTxts2>
-                    <G.TxtInner>
-                      <G.ItemTime>오늘 11:30</G.ItemTime>
-                      <G.AlarmCount2>1.5K</G.AlarmCount2>
-                    </G.TxtInner>
-                    <G.ItemTitle2>VIPS로 만드는 우리집 레스토랑</G.ItemTitle2>
-                    <G.Name>NnF</G.Name>
-                  </G.ItemTxts2>
-                </G.ItemRight>
-              </G.ItemTop>
-            </G.ItemWrap>
-            <G.ItemWrap>
-              <G.ItemTop>
-                <G.ItemRight>
-                  <G.Thumb2>
-                    <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
-                  </G.Thumb2>
-                  <G.ItemTxts2>
-                    <G.TxtInner>
-                      <G.ItemTime>오늘 11:30</G.ItemTime>
-                      <G.AlarmCount2>1.5K</G.AlarmCount2>
-                    </G.TxtInner>
-                    <G.ItemTitle2>VIPS로 만드는 우리집 레스토랑</G.ItemTitle2>
-                    <G.Name>NnF</G.Name>
-                  </G.ItemTxts2>
-                </G.ItemRight>
-              </G.ItemTop>
-            </G.ItemWrap>
-            <G.ItemWrap>
-              <G.ItemTop>
-                <G.ItemRight>
-                  <G.Thumb2>
-                    <G.Img src={`${imgRoutes.thumbnail}/product_default.png`} alt='상품' />
-                  </G.Thumb2>
-                  <G.ItemTxts2>
-                    <G.TxtInner>
-                      <G.ItemTime>오늘 11:30</G.ItemTime>
-                      <G.AlarmCount2>1.5K</G.AlarmCount2>
-                    </G.TxtInner>
-                    <G.ItemTitle2>VIPS로 만드는 우리집 레스토랑</G.ItemTitle2>
-                    <G.Name>NnF</G.Name>
-                  </G.ItemTxts2>
-                </G.ItemRight>
-              </G.ItemTop>
-            </G.ItemWrap>
-          </SBanner>
-        </SwiperSlide>
-        <SwiperSlide>
-          <SBanner></SBanner>
-        </SwiperSlide>
-      </SSwiper>
-    </Container>
+    <div>
+      {liveSchedule.length !== 0 && (
+        <Container>
+          <MainTitle>
+            <G.TitleTxt>LIVE 예고</G.TitleTxt>
+            <G.Btn>더보기</G.Btn>
+          </MainTitle>
+          <SSwiper
+            className='banner__swiper'
+            spaceBetween={0}
+            slidesPerView={1}
+            pagination={{
+              el: ".banner__pagination",
+              clickable: true,
+            }}
+            navigation={true}
+          >
+            <SPagination className='banner__pagination' />
+            <SwiperSlide>
+              <SBanner>
+                {liveSchedule.data.list.map((item, livecastSeq) => (
+                  <G.ItemWrap key={item.livecastSeq}>
+                    <G.ItemTop>
+                      <G.ItemRight>
+                        <G.Thumb2>
+                          <G.Img src={`${item.imgPath}`} alt='상품' />
+                        </G.Thumb2>
+                        <G.ItemTxts2>
+                          <G.TxtInner>
+                            <G.ItemTime>
+                              {item.resDate}
+                              {item.weekName}
+                              {item.resTime}
+                            </G.ItemTime>
+                            <G.AlarmCount2>{item.pushCnt}</G.AlarmCount2>
+                          </G.TxtInner>
+                          <G.ItemTitle2>{item.title}</G.ItemTitle2>
+                          <G.Name>{item.providerName}</G.Name>
+                        </G.ItemTxts2>
+                      </G.ItemRight>
+                    </G.ItemTop>
+                  </G.ItemWrap>
+                ))}
+              </SBanner>
+            </SwiperSlide>
+          </SSwiper>
+        </Container>
+      )}
+    </div>
   );
 });
 

@@ -23,7 +23,7 @@ const VogoItem = styled(G.VogoItem)`
 
 const VogoLook = () => {
   const [vogolook, setVogoLook] = useState([]);
-  console.log(vogolook);
+  // console.log(vogolook);
 
   useEffect(() => {
     const myHeaders = new Headers();
@@ -42,7 +42,7 @@ const VogoLook = () => {
       .then((response) => response.json())
       .then((result) => setVogoLook(result))
       .catch((error) => console.log("error", error));
-  });
+  }, []);
 
   return (
     <>
@@ -54,8 +54,8 @@ const VogoLook = () => {
               <G.Btn>더보기</G.Btn>
             </G.MainTitle>
             <Content>
-              {vogolook.data.map((item, idx) => (
-                <VogoItem key={item.idx}>
+              {vogolook.data.map((item, wantsIdx) => (
+                <VogoItem key={item.wantsIdx}>
                   <G.VogoImgWrap>
                     <G.VogoImg src={`${item.imageList[0].image}`} alt='상품' />
                     <G.VogoImg src={`${item.imageList[1].image}`} alt='상품' />

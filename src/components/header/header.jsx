@@ -15,7 +15,7 @@ const AppHeader = styled.header`
   width: 100%;
   height: 56px;
   padding: 0px 20px;
-  background-color: ${(props) => (props.color ? "transparent" : "#ddd")};
+  background-color: ${(props) => (props.bgcolor ? "transparent" : "#ddd")};
 `;
 
 const Logo = styled.div`
@@ -47,7 +47,7 @@ const Cart = styled.button`
 
 const Header = () => {
   return (
-    <AppHeader color={true}>
+    <AppHeader bgcolor={true}>
       <Logo></Logo>
       <Btns>
         <Search></Search>

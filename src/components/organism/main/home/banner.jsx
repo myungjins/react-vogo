@@ -71,7 +71,7 @@ export const SPagination = styled.div`
 
 const Banner = () => {
   const [banner, setBanner] = useState([]);
-  console.log(banner);
+  // console.log(banner);
 
   useEffect(() => {
     const myHeaders = new Headers();

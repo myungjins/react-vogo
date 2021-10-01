@@ -11,7 +11,13 @@ SwiperCore.use([Pagination]);
 const Container = styled.div`
   width: 100%;
   height: auto;
-  border-bottom: 8px solid ${C.GF1F3F5};
+  &::after {
+    content: "";
+    display: block;
+    height: 8px;
+    margin: 0 -16px;
+    background-color: ${C.GF1F3F5};
+  }
 `;
 
 export const MainTitle = styled(G.MainTitle)`

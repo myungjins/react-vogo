@@ -71,7 +71,7 @@ const LiveHotDeal = () => {
             <G.TitleTxt>LIVE 핫딜</G.TitleTxt>
           </G.MainTitle>
           <Content>
-            {livehotdeal.data.list.map((item, livecastSeq) => (
+            {livehotdeal.data.list.map((item) => (
               <ThumbnailWrap key={item.livecastSeq}>
                 <ThumbnailBox>
                   <S.Thumbnail style={{ backgroundImage: `url(${item.imgPath})` }} />
@@ -90,7 +90,11 @@ const LiveHotDeal = () => {
                     <S.GoodsInfo>
                       <S.GoodsName>{item.goods[0].goodsName}</S.GoodsName>
                       <S.GoodsPrices>
-                        <S.Discount>33</S.Discount>
+                        <S.Discount>
+                          {Math.floor(
+                            100 - (item.goods[0].price * 100) / item.goods[0].marketPrice
+                          )}
+                        </S.Discount>
                         <S.Price>{item.goods[0].price}</S.Price>
                       </S.GoodsPrices>
                     </S.GoodsInfo>

@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import * as S from "components/shared/styles/thumbnail.style";
-import { imgRoutes } from "components/shared/common/images";
 import * as G from "components/shared/styles/goods.style";
+import { GF1F3F5 } from "components/shared/common/colors";
 
-const Container = styled.div`
+const CategoryItem = styled.div`
   width: 100%;
   height: auto;
-  padding-bottom: 26px;
+  &:not(:last-of-type)&::after {
+    content: "";
+    display: block;
+    height: 8px;
+    margin: 0 -16px;
+    background-color: ${GF1F3F5};
+  }
 `;
 
 const MainTitle = styled(G.MainTitle)`
@@ -17,6 +23,7 @@ const MainTitle = styled(G.MainTitle)`
 const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
+  padding-bottom: 26px;
 `;
 
 const ThumbnailWrap = styled(S.ThumbnailWrap)`
@@ -24,131 +31,84 @@ const ThumbnailWrap = styled(S.ThumbnailWrap)`
 `;
 
 const CategoryGoodsDetail = () => {
+  const [categoryGoods, setcategoryGoods] = useState([]);
+  // console.log(categoryGoods);
+
+  useEffect(() => {
+    const myHeaders = new Headers();
+    myHeaders.append("Cookie", "SCOUTER=xkhvir0ta5f1e");
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://devapi.vogoplay.com/api/main/category?Key=AIzaSyCkr0UI65tFw4YmpfHl9bPPwbS4Ae6I4zA",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setcategoryGoods(result))
+      .catch((error) => console.log("error", error));
+  }, []);
+
   return (
-    <Container>
-      <MainTitle>
-        <G.TitleTxt>식품</G.TitleTxt>
-        <G.Btn>더보기</G.Btn>
-      </MainTitle>
-      <Content>
-        <ThumbnailWrap>
-          <S.ThumbnailSmallBox>
-            <S.Thumbnail style={{ backgroundImage: `url(${imgRoutes.thumbnail}/default.png)` }} />
-            <S.Option>
-              <S.LiveBox>
-                <S.LiveViewerBox>
-                  <S.LiveViewerSmall />
-                  <S.LiveViewerNumSmall>3</S.LiveViewerNumSmall>
-                </S.LiveViewerBox>
-              </S.LiveBox>
-              <S.TimeSmall>00:00:00</S.TimeSmall>
-            </S.Option>
+    <div>
+      {categoryGoods.length !== 0 && (
+        <div>
+          {categoryGoods.data.map((item, index) => (
+            <CategoryItem key={item.categorySeq}>
+              <MainTitle>
+                <G.TitleTxt>{item.categoryName}</G.TitleTxt>
+                <G.Btn>더보기</G.Btn>
+              </MainTitle>
+              <Content>
+                {categoryGoods.data[index].livecastList.map((item) => (
+                  <ThumbnailWrap key={item.livecastSeq}>
+                    <S.ThumbnailSmallBox>
+                      <S.Thumbnail
+                        style={{
+                          backgroundImage: `url(${item.imgPath}`,
+                        }}
+                      />
+                      <S.Option>
+                        <S.LiveBox>
+                          <S.LiveViewerBox>
+                            <S.LiveViewerSmall />
+                            <S.LiveViewerNumSmall>{item.watchCnt}</S.LiveViewerNumSmall>
+                          </S.LiveViewerBox>
+                        </S.LiveBox>
+                        <S.TimeSmall>{item.vodTime}</S.TimeSmall>
+                      </S.Option>
 
-            <S.GoodsBox>
-              <S.GoodsInfo2>
-                <S.GoodsNameSmall>쫄깃쫄깃 구워먹는 앙금절편 / 치즈절편 (옵션 O)</S.GoodsNameSmall>
-                <S.GoodsPrices>
-                  <S.Discount>33</S.Discount>
-                  <S.Price>2,000</S.Price>
-                </S.GoodsPrices>
-              </S.GoodsInfo2>
-            </S.GoodsBox>
-          </S.ThumbnailSmallBox>
+                      <S.GoodsBox>
+                        <S.GoodsInfo2>
+                          <S.GoodsNameSmall>{item.goods[0].goodsName}</S.GoodsNameSmall>
+                          <S.GoodsPrices>
+                            <S.Discount>
+                              {Math.floor(
+                                100 - (item.goods[0].price * 100) / item.goods[0].marketPrice
+                              )}
+                            </S.Discount>
+                            <S.Price>{item.goods[0].price}</S.Price>
+                          </S.GoodsPrices>
+                        </S.GoodsInfo2>
+                      </S.GoodsBox>
+                    </S.ThumbnailSmallBox>
 
-          <S.SellerBox>
-            <S.SellerSmall>provider_name</S.SellerSmall>
-            <S.SellerTitleSmall>title</S.SellerTitleSmall>
-          </S.SellerBox>
-        </ThumbnailWrap>
-        <ThumbnailWrap>
-          <S.ThumbnailSmallBox>
-            <S.Thumbnail style={{ backgroundImage: `url(${imgRoutes.thumbnail}/default.png)` }} />
-            <S.Option>
-              <S.LiveBox>
-                <S.LiveViewerBox>
-                  <S.LiveViewerSmall />
-                  <S.LiveViewerNumSmall>3</S.LiveViewerNumSmall>
-                </S.LiveViewerBox>
-              </S.LiveBox>
-              <S.TimeSmall>00:00:00</S.TimeSmall>
-            </S.Option>
-
-            <S.GoodsBox>
-              <S.GoodsInfo2>
-                <S.GoodsNameSmall>쫄깃쫄깃 구워먹는 앙금절편 / 치즈절편 (옵션 O)</S.GoodsNameSmall>
-                <S.GoodsPrices>
-                  <S.Discount>33</S.Discount>
-                  <S.Price>2,000</S.Price>
-                </S.GoodsPrices>
-              </S.GoodsInfo2>
-            </S.GoodsBox>
-          </S.ThumbnailSmallBox>
-
-          <S.SellerBox>
-            <S.SellerSmall>provider_name</S.SellerSmall>
-            <S.SellerTitleSmall>title</S.SellerTitleSmall>
-          </S.SellerBox>
-        </ThumbnailWrap>
-        <ThumbnailWrap>
-          <S.ThumbnailSmallBox>
-            <S.Thumbnail style={{ backgroundImage: `url(${imgRoutes.thumbnail}/default.png)` }} />
-            <S.Option>
-              <S.LiveBox>
-                <S.LiveViewerBox>
-                  <S.LiveViewerSmall />
-                  <S.LiveViewerNumSmall>3</S.LiveViewerNumSmall>
-                </S.LiveViewerBox>
-              </S.LiveBox>
-              <S.TimeSmall>00:00:00</S.TimeSmall>
-            </S.Option>
-
-            <S.GoodsBox>
-              <S.GoodsInfo2>
-                <S.GoodsNameSmall>쫄깃쫄깃 구워먹는 앙금절편 / 치즈절편 (옵션 O)</S.GoodsNameSmall>
-                <S.GoodsPrices>
-                  <S.Discount>33</S.Discount>
-                  <S.Price>2,000</S.Price>
-                </S.GoodsPrices>
-              </S.GoodsInfo2>
-            </S.GoodsBox>
-          </S.ThumbnailSmallBox>
-
-          <S.SellerBox>
-            <S.SellerSmall>provider_name</S.SellerSmall>
-            <S.SellerTitleSmall>title</S.SellerTitleSmall>
-          </S.SellerBox>
-        </ThumbnailWrap>
-        <ThumbnailWrap>
-          <S.ThumbnailSmallBox>
-            <S.Thumbnail style={{ backgroundImage: `url(${imgRoutes.thumbnail}/default.png)` }} />
-            <S.Option>
-              <S.LiveBox>
-                <S.LiveViewerBox>
-                  <S.LiveViewerSmall />
-                  <S.LiveViewerNumSmall>3</S.LiveViewerNumSmall>
-                </S.LiveViewerBox>
-              </S.LiveBox>
-              <S.TimeSmall>00:00:00</S.TimeSmall>
-            </S.Option>
-
-            <S.GoodsBox>
-              <S.GoodsInfo2>
-                <S.GoodsNameSmall>쫄깃쫄깃 구워먹는 앙금절편 / 치즈절편 (옵션 O)</S.GoodsNameSmall>
-                <S.GoodsPrices>
-                  <S.Discount>33</S.Discount>
-                  <S.Price>2,000</S.Price>
-                </S.GoodsPrices>
-              </S.GoodsInfo2>
-            </S.GoodsBox>
-          </S.ThumbnailSmallBox>
-
-          <S.SellerBox>
-            <S.SellerSmall>provider_name</S.SellerSmall>
-            <S.SellerTitleSmall>title</S.SellerTitleSmall>
-          </S.SellerBox>
-        </ThumbnailWrap>
-      </Content>
-    </Container>
+                    <S.SellerBox>
+                      <S.SellerSmall>{item.providerName}</S.SellerSmall>
+                      <S.SellerTitleSmall>{item.title}</S.SellerTitleSmall>
+                    </S.SellerBox>
+                  </ThumbnailWrap>
+                ))}
+              </Content>
+            </CategoryItem>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import * as C from "components/shared/common/colors";
 import * as F from "components/shared/common/fontSize";
-import { imgRoutes } from "../common/images";
+import { imgRoutes } from "components/shared/common/images";
 
 // TEXT
 export const FormText = styled.input`

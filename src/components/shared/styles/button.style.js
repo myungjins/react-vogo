@@ -2,7 +2,7 @@ import styled from "styled-components";
 import * as C from "components/shared/common/colors";
 import * as F from "components/shared/common/fontSize";
 import { ROBOTO } from "components/shared/common/fontFamily";
-import { imgRoutes } from "../common/images";
+import { imgRoutes } from "components/shared/common/images";
 
 export const BtnBox = styled.div`
   display: flex;

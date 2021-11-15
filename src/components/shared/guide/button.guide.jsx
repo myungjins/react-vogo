@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import * as S from "components/shared/styles/button.style";
-import { imgRoutes } from "../common/images";
+import { imgRoutes } from "components/shared/common/images";
 
 const Container = styled.div`
   padding: 30px 0;

@@ -1,5 +1,6 @@
+import { WHITE } from "components/shared/common/colors";
 import { imgRoutes } from "components/shared/common/images";
-import React from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const AppHeader = styled.header`
@@ -15,14 +16,19 @@ const AppHeader = styled.header`
   width: 100%;
   height: 56px;
   padding: 0px 20px;
-  background-color: ${(props) => (props.bgcolor ? "transparent" : "#ddd")};
+  background-color: transparent;
+  &.change_header {
+    background-color: ${WHITE};
+  }
 `;
 
 const Logo = styled.div`
   display: inline-block;
   width: 90px;
   height: 21px;
-  background: url("${imgRoutes.common}/logo_purple.png") no-repeat center/contain;
+  &.change_logo {
+    background: url("${imgRoutes.common}/logo_purple.png") no-repeat center/contain;
+  }
 `;
 
 const Btns = styled.div`
@@ -35,6 +41,9 @@ const Search = styled.button`
   height: 24px;
   background: url("${imgRoutes.common}/ic_search_shadow.png") no-repeat center/contain;
   border: none;
+  &.change_search {
+    background: url("${imgRoutes.common}/ic_search_black.png") no-repeat center/contain;
+  }
 `;
 
 const Cart = styled.button`
@@ -43,15 +52,27 @@ const Cart = styled.button`
   margin-left: 16px;
   background: url("${imgRoutes.common}/ic_cart_white_shadow.png") no-repeat center/contain;
   border: none;
+  &.change_cart {
+    background: url("${imgRoutes.common}/ic_cart_black.png") no-repeat center/contain;
+  }
 `;
 
 const Header = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const updateScroll = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", updateScroll);
+  });
+
   return (
-    <AppHeader bgcolor={true}>
-      <Logo></Logo>
+    <AppHeader className={scrollPosition < 10 ? "" : "change_header"}>
+      <Logo className={scrollPosition < 10 ? "" : "change_logo"}></Logo>
       <Btns>
-        <Search></Search>
-        <Cart></Cart>
+        <Search className={scrollPosition < 10 ? "" : "change_search"}></Search>
+        <Cart className={scrollPosition < 10 ? "" : "change_cart"}></Cart>
       </Btns>
     </AppHeader>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import * as C from "components/shared/common/colors";
 import * as F from "components/shared/common/fontSize";
@@ -111,18 +111,20 @@ const LinkNumber = styled.a``;
 const LinkIcon = styled.i`
   width: 24px;
   height: 24px;
-  background: url("${imgRoutes.common}/ic_arrow_down_gray_2.png") no-repeat center/contain;
   transform: rotate(${(props) => (props.displays ? "180deg" : "0")});
+  background: url("${imgRoutes.common}/ic_arrow_down_gray_2.png") no-repeat center/contain;
+  background-position-y: ${(props) => (props.displays ? "1px " : "0")};
 `;
 
 const Footer = () => {
+  const [displays, setDisplays] = useState(false);
   return (
     <FooterWrap>
       <Top>
         <Vogo>보고플레이(주)</Vogo>
-        <Button>
-          더보기
-          <LinkIcon displays={false} />
+        <Button onClick={() => setDisplays(!displays)} display={displays}>
+          {!displays ? "더보기" : "접기"}
+          <LinkIcon displays={displays} />
         </Button>
       </Top>
 
@@ -138,7 +140,7 @@ const Footer = () => {
         </CheckItem>
       </CheckBox>
 
-      <InfoBox displays={false}>
+      <InfoBox displays={displays}>
         <Info>
           <Title>대표자</Title>
           <Texts>류승태</Texts>

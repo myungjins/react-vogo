@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import * as G from "components/shared/styles/goods.style";
 import { GF1F3F5 } from "components/shared/common/colors";
+import { imgRoutes } from "components/shared/common/images";
 
 const Container = styled.div`
   margin: 0px -16px;
@@ -44,6 +45,10 @@ const VogoLook = () => {
       .catch((error) => console.log("error", error));
   }, []);
 
+  const handleImgError = (e) => {
+    e.target.src = `${imgRoutes.thumbnail}/product_default.png`;
+  };
+
   return (
     <>
       <div>
@@ -57,7 +62,11 @@ const VogoLook = () => {
               {vogolook.data.map((item, wantsIdx) => (
                 <VogoItem key={item.wantsIdx}>
                   <G.VogoImgWrap>
-                    <G.VogoImg src={`${item.imageList[0].image}`} alt='상품' />
+                    <G.VogoImg
+                      src={`${item.imageList[0].image}`}
+                      alt='상품'
+                      onError={handleImgError}
+                    />
                     <G.VogoImg src={`${item.imageList[1].image}`} alt='상품' />
                   </G.VogoImgWrap>
                   <G.TxtWrap>

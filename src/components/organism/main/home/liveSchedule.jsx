@@ -5,6 +5,7 @@ import * as G from "components/shared/styles/goods.style";
 import SwiperCore, { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
+import { imgRoutes } from "components/shared/common/images";
 SwiperCore.use([Pagination]);
 
 const Container = styled.div`
@@ -57,7 +58,7 @@ export const SPagination = styled.div`
 
 const LiveSchedule = memo(() => {
   const [liveSchedule, setLiveSchedule] = useState([]);
-  console.log(liveSchedule);
+  // console.log(liveSchedule);
 
   useEffect(() => {
     const myHeaders = new Headers();
@@ -78,6 +79,67 @@ const LiveSchedule = memo(() => {
       .catch((error) => console.log("error", error));
   }, []);
 
+  const handleImgError = (e) => {
+    e.target.src = `${imgRoutes.thumbnail}/product_default.png`;
+  };
+
+  // useEffect(() => {
+  //   if (liveSchedule.length !== 0) {
+  //     console.log(liveSchedule.data.list);
+  //     liveSchedule.data.list.map((item, a) => {
+  //       console.log("aaaaa : " + a);
+  //       // console.log(item);
+  //       if (a % 3 === 0) {
+  //         console.log("bbbbb : " + a);
+  //         console.log("=========================================");
+  //         liveSchedule.data.list.map((item, b) => {
+  //           // 0 >= 1
+  //           if (b >= a && b < a + 3) {
+  //             console.log("ccccc : " + b);
+  //           }
+  //           return b;
+  //         });
+  //       }
+  //       return a;
+  //     });
+  //   }
+  // }, [liveSchedule]);
+
+  // useEffect(() => {
+  //   for (var i = 2; i < 10; i++) {
+  //     console.log(i + "단");
+  //     for (var a = 1; a < 10; a++) {
+  //       console.log(i + "*" + a + "=" + i * a);
+  //     }
+  //   }
+
+  //   const num1 = [2, 3, 4, 5, 6, 7, 8, 9];
+  //   const num2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  //   num1.map((num1) => {
+  //     console.log(num1 + "단");
+  //     num2.map((num2) => {
+  //       console.log(num1 + "*" + num2 + "=" + num1 * num2);
+  //     });
+  //   });
+
+  //   for (var b = 0; b < num1.length; b++) {
+  //     console.log(num1[b]);
+  //   }
+
+  //   const aaa = 1;
+  //   console.log("aaa : " + aaa);
+  //   let bbb = 2;
+  //   bbb = 3;
+  //   console.log("bbb : " + bbb);
+  //   {
+  //   var ccc = 3;
+  //   let ddd = 5;
+  //   }
+  //   console.log("ccc : " + ccc);
+  //   console.log("ddd : " + ddd);
+  // });
+
   return (
     <div>
       {liveSchedule.length !== 0 && (
@@ -97,33 +159,46 @@ const LiveSchedule = memo(() => {
             navigation={true}
           >
             <SPagination className='banner__pagination' />
-            <SwiperSlide>
-              <SBanner>
-                {liveSchedule.data.list.map((item, livecastSeq) => (
-                  <G.ItemWrap key={item.livecastSeq}>
-                    <G.ItemTop>
-                      <G.ItemRight>
-                        <G.Thumb2>
-                          <G.Img src={`${item.imgPath}`} alt='상품' />
-                        </G.Thumb2>
-                        <G.ItemTxts2>
-                          <G.TxtInner>
-                            <G.ItemTime>
-                              {item.resDate}
-                              {item.weekName}
-                              {item.resTime}
-                            </G.ItemTime>
-                            <G.AlarmCount2>{item.pushCnt}</G.AlarmCount2>
-                          </G.TxtInner>
-                          <G.ItemTitle2>{item.title}</G.ItemTitle2>
-                          <G.Name>{item.providerName}</G.Name>
-                        </G.ItemTxts2>
-                      </G.ItemRight>
-                    </G.ItemTop>
-                  </G.ItemWrap>
-                ))}
-              </SBanner>
-            </SwiperSlide>
+            {liveSchedule.data.list.map(
+              (item, index) =>
+                index % 3 === 0 && (
+                  <SwiperSlide key={item.livecastSeq}>
+                    <SBanner>
+                      {liveSchedule.data.list.map(
+                        (item, itemIndex) =>
+                          itemIndex >= index &&
+                          itemIndex < index + 3 && (
+                            <G.ItemWrap key={item.livecastSeq}>
+                              <G.ItemTop>
+                                <G.ItemRight>
+                                  <G.Thumb2>
+                                    <G.Img
+                                      src={`${item.imgPath}`}
+                                      alt='상품'
+                                      onError={handleImgError}
+                                    />
+                                  </G.Thumb2>
+                                  <G.ItemTxts2>
+                                    <G.TxtInner>
+                                      <G.ItemTime>
+                                        {item.resDate}
+                                        {item.weekName}
+                                        {item.resTime}
+                                      </G.ItemTime>
+                                      <G.AlarmCount2>{item.pushCnt}</G.AlarmCount2>
+                                    </G.TxtInner>
+                                    <G.ItemTitle2>{item.title}</G.ItemTitle2>
+                                    <G.Name>{item.providerName}</G.Name>
+                                  </G.ItemTxts2>
+                                </G.ItemRight>
+                              </G.ItemTop>
+                            </G.ItemWrap>
+                          )
+                      )}
+                    </SBanner>
+                  </SwiperSlide>
+                )
+            )}
           </SSwiper>
         </Container>
       )}

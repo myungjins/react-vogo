@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import styled from "styled-components";
 import * as S from "components/shared/styles/thumbnail.style";
 import { GF1F3F5 } from "components/shared/common/colors";
 import * as G from "components/shared/styles/goods.style";
+import { imgRoutes } from "components/shared/common/images";
 
 const Container = styled.div`
   width: 100%;
@@ -21,6 +22,7 @@ const Content = styled.div`
   display: flex;
   white-space: nowrap;
   position: relative;
+  padding-bottom: 26px;
 `;
 
 const ThumbnailWrap = styled(S.ThumbnailWrap)`
@@ -40,9 +42,8 @@ const ThumbnailBox = styled(S.ThumbnailBox)`
   border-radius: 4px;
 `;
 
-const LiveHotDeal = () => {
+const LiveHotDeal = memo(() => {
   const [livehotdeal, setLiveHotDeal] = useState([]);
-  // console.log(livehotdeal);
 
   useEffect(() => {
     const myHeaders = new Headers();
@@ -63,6 +64,14 @@ const LiveHotDeal = () => {
       .catch((error) => console.log("error", error));
   }, []);
 
+  const discount = (price, marketPrice) => {
+    return Math.floor(100 - (price * 100) / marketPrice);
+  };
+
+  const time = (watchCnt) => {
+    return watchCnt.substring(3);
+  };
+
   return (
     <div>
       {livehotdeal.length !== 0 && (
@@ -74,7 +83,11 @@ const LiveHotDeal = () => {
             {livehotdeal.data.list.map((item) => (
               <ThumbnailWrap key={item.livecastSeq}>
                 <ThumbnailBox>
-                  <S.Thumbnail style={{ backgroundImage: `url(${item.imgPath})` }} />
+                  <S.Thumbnail
+                    style={{
+                      backgroundImage: `url(${item.imgPath}), url(${imgRoutes.thumbnail}/default.png)`,
+                    }}
+                  />
                   <S.Option>
                     <S.LiveBox>
                       <S.Live />
@@ -83,17 +96,20 @@ const LiveHotDeal = () => {
                         <S.LiveViewerNum>{item.watchCnt}</S.LiveViewerNum>
                       </S.LiveViewerBox>
                     </S.LiveBox>
-                    <S.Time>{item.vodTime}</S.Time>
+                    {/* <S.Time>{item.vodTime}</S.Time> */}
+                    <S.Time>{time(item.vodTime)}</S.Time>
                   </S.Option>
                   <S.GoodsBox>
-                    <S.GoodsThumbnail style={{ backgroundImage: `url(${item.goods[0].image}` }} />
+                    <S.GoodsThumbnail
+                      style={{
+                        backgroundImage: `url(${item.goods[0].image}), url(${imgRoutes.thumbnail}/product_default.png)`,
+                      }}
+                    />
                     <S.GoodsInfo>
                       <S.GoodsName>{item.goods[0].goodsName}</S.GoodsName>
                       <S.GoodsPrices>
                         <S.Discount>
-                          {Math.floor(
-                            100 - (item.goods[0].price * 100) / item.goods[0].marketPrice
-                          )}
+                          {discount(item.goods[0].price, item.goods[0].marketPrice)}
                         </S.Discount>
                         <S.Price>{item.goods[0].price}</S.Price>
                       </S.GoodsPrices>
@@ -111,6 +127,6 @@ const LiveHotDeal = () => {
       )}
     </div>
   );
-};
+});
 
 export default LiveHotDeal;

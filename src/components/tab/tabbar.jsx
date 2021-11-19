@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import * as C from "components/shared/common/colors";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { imgRoutes } from "components/shared/common/images";
 
 const STabBar = styled.ul`
@@ -21,15 +21,6 @@ const Item = styled.li`
   pointer-events: ${(props) => (props.actives ? "none" : "auto")};
 `;
 
-const SLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 52px;
-`;
-
 const Button = styled.button`
   display: flex;
   align-items: center;
@@ -45,6 +36,34 @@ const Icon = styled.i`
   pointer-events: none;
 `;
 
+const TabHome = styled(Icon)`
+  background: ${(props) =>
+    props.icons
+      ? `url("${imgRoutes.common}/ic_home_thin.png")`
+      : `url("${imgRoutes.common}/ic_home_fill.png")`};
+`;
+
+const TabCategory = styled(Icon)`
+  background: ${(props) =>
+    props.icons
+      ? `url("${imgRoutes.common}/ic_category_thin.png")`
+      : `url("${imgRoutes.common}/ic_category_fill.png")`};
+`;
+
+const TabFeed = styled(Icon)`
+  background: ${(props) =>
+    props.icons
+      ? `url("${imgRoutes.common}/ic_feed_thin.png")`
+      : `url("${imgRoutes.common}/ic_feed_fill.png")`};
+`;
+
+const TabMy = styled(Icon)`
+  background: ${(props) =>
+    props.icons
+      ? `url("${imgRoutes.common}/ic_my_thin.png")`
+      : `url("${imgRoutes.common}/ic_my_fill.png")`};
+`;
+
 const Text = styled.p`
   margin-top: 2px;
   font-size: 9px;
@@ -54,46 +73,50 @@ const Text = styled.p`
   pointer-events: none;
 `;
 
-const Tabbar = () => {
-  return (
-    <STabBar scroll={true}>
-      <Item actives={true}>
-        <SLink to='/'>
-          <Icon style={{ backgroundImage: `url(${imgRoutes.common}/ic_home_thin.png)` }} />
-          <Text fontColor={true} fontWeightOption={true}>
-            홈
-          </Text>
-        </SLink>
-      </Item>
+const Tabbar = withRouter(
+  memo(({ location: { pathname }, history }) => {
+    // console.log(location.pathname);
+    console.log(pathname);
+    return (
+      <STabBar scroll={true}>
+        <Item>
+          <Button onClick={() => history.push("/")}>
+            <TabHome icons={pathname !== "/"} />
+            <Text fontColor={pathname !== "/"} fontWeightOption={pathname !== "/"}>
+              홈
+            </Text>
+          </Button>
+        </Item>
 
-      <Item>
-        <SLink to='/category'>
-          <Icon style={{ backgroundImage: `url(${imgRoutes.common}/ic_category_thin.png)` }} />
-          <Text fontColor={true} fontWeightOption={true}>
-            카테고리
-          </Text>
-        </SLink>
-      </Item>
+        <Item actives={pathname === "/category"}>
+          <Button onClick={() => history.push("/category")}>
+            <TabCategory icons={pathname !== "/category"} />
+            <Text fontColor={pathname !== "/category"} fontWeightOption={pathname !== "/category"}>
+              카테고리
+            </Text>
+          </Button>
+        </Item>
 
-      <Item>
-        <SLink to='/feed'>
-          <Icon style={{ backgroundImage: `url(${imgRoutes.common}/ic_feed_thin.png)` }} />
-          <Text fontColor={true} fontWeightOption={true}>
-            피드
-          </Text>
-        </SLink>
-      </Item>
+        <Item actives={pathname === "/feed"}>
+          <Button onClick={() => history.push("/feed")}>
+            <TabFeed icons={pathname !== "/feed"} />
+            <Text fontColor={pathname !== "/feed"} fontWeightOption={pathname !== "/feed"}>
+              피드
+            </Text>
+          </Button>
+        </Item>
 
-      <Item>
-        <Button>
-          <Icon style={{ backgroundImage: `url(${imgRoutes.common}/ic_my_thin.png)` }} />
-          <Text fontColor={true} fontWeightOption={true}>
-            마이페이지
-          </Text>
-        </Button>
-      </Item>
-    </STabBar>
-  );
-};
+        <Item>
+          <Button onClick={() => history.push("/user")}>
+            <TabMy icons={pathname !== "/user"} />
+            <Text fontColor={pathname !== "/user"} fontWeightOption={pathname !== "/user"}>
+              마이페이지
+            </Text>
+          </Button>
+        </Item>
+      </STabBar>
+    );
+  })
+);
 
 export default Tabbar;

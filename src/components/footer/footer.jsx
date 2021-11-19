@@ -122,7 +122,7 @@ const Footer = () => {
     <FooterWrap>
       <Top>
         <Vogo>보고플레이(주)</Vogo>
-        <Button onClick={() => setDisplays(!displays)} display={displays}>
+        <Button onClick={() => setDisplays(!displays)} displays={displays}>
           {!displays ? "더보기" : "접기"}
           <LinkIcon displays={displays} />
         </Button>

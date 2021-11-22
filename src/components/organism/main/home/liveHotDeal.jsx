@@ -100,18 +100,24 @@ const LiveHotDeal = memo(() => {
                     <S.Time>{time(item.vodTime)}</S.Time>
                   </S.Option>
                   <S.GoodsBox>
-                    <S.GoodsThumbnail
-                      style={{
-                        backgroundImage: `url(${item.goods[0].image}), url(${imgRoutes.thumbnail}/product_default.png)`,
-                      }}
-                    />
+                    {item.goods[0].image !== null && (
+                      <S.GoodsThumbnail
+                        style={{
+                          backgroundImage: `url(${item.goods[0].image}), url(${imgRoutes.thumbnail}/product_default.png)`,
+                        }}
+                      />
+                    )}
                     <S.GoodsInfo>
                       <S.GoodsName>{item.goods[0].goodsName}</S.GoodsName>
                       <S.GoodsPrices>
-                        <S.Discount>
-                          {discount(item.goods[0].price, item.goods[0].marketPrice)}
-                        </S.Discount>
-                        <S.Price>{item.goods[0].price}</S.Price>
+                        {discount(item.goods[0].price, item.goods[0].marketPrice) !== null &&
+                          discount(item.goods[0].price, item.goods[0].marketPrice) > 0 && (
+                            <S.Discount>
+                              {discount(item.goods[0].price, item.goods[0].marketPrice)}
+                            </S.Discount>
+                          )}
+
+                        {item.goods[0].price !== null && <S.Price>{item.goods[0].price}</S.Price>}
                       </S.GoodsPrices>
                     </S.GoodsInfo>
                   </S.GoodsBox>

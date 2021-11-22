@@ -8,6 +8,7 @@ import Main from "page/main";
 import Category from "page/main/category";
 import User from "page/user";
 import Feed from "page/feed";
+import ModalGuide from "components/shared/guide/modal.guide";
 
 const Routes = () => {
   return (
@@ -25,6 +26,7 @@ const Routes = () => {
       <Route path='/guide/goods' component={GoodsGuide} />
       <Route path='/guide/button' component={ButtonGuide} />
       <Route path='/guide/form' component={FormGuide} />
+      <Route path='/guide/modal' component={ModalGuide} />
     </>
   );
 };

@@ -1,8 +1,9 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import styled from "styled-components";
 import * as C from "components/shared/common/colors";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import { imgRoutes } from "components/shared/common/images";
+import LoginModal from "components/modal/login.modal";
 
 const STabBar = styled.ul`
   display: flex;
@@ -74,9 +75,18 @@ const Text = styled.p`
 `;
 
 const Tabbar = withRouter(
-  memo(({ location: { pathname }, history }) => {
+  memo(({ location: { pathname } }) => {
     // console.log(location.pathname);
-    console.log(pathname);
+    const history = useHistory();
+    const [loginModal, setLoginModal] = useState(true);
+
+    const handleLink = (url) => {
+      console.log(url);
+      if (url === "user") {
+        setLoginModal(false);
+      }
+    };
+
     return (
       <STabBar scroll={true}>
         <Item>
@@ -107,13 +117,18 @@ const Tabbar = withRouter(
         </Item>
 
         <Item>
-          <Button onClick={() => history.push("/user")}>
+          <Button onClick={() => handleLink("user")} to='/user'>
             <TabMy icons={pathname !== "/user"} />
             <Text fontColor={pathname !== "/user"} fontWeightOption={pathname !== "/user"}>
               마이페이지
             </Text>
           </Button>
         </Item>
+
+        <LoginModal //
+          loginModal={loginModal}
+          setLoginModal={setLoginModal}
+        />
       </STabBar>
     );
   })

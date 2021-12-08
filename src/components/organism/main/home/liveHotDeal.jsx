@@ -107,6 +107,7 @@ const LiveHotDeal = memo(() => {
                         }}
                       />
                     )}
+                    {console.log(item.goods[0])}
                     <S.GoodsInfo>
                       <S.GoodsName>{item.goods[0].goodsName}</S.GoodsName>
                       <S.GoodsPrices>

@@ -72,6 +72,10 @@ const LiveHotDeal = memo(() => {
     return watchCnt.substring(3);
   };
 
+  const comma = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   return (
     <div>
       {livehotdeal.length !== 0 && (
@@ -99,29 +103,42 @@ const LiveHotDeal = memo(() => {
                     {/* <S.Time>{item.vodTime}</S.Time> */}
                     <S.Time>{time(item.vodTime)}</S.Time>
                   </S.Option>
-                  <S.GoodsBox>
-                    {item.goods[0].image !== null && (
+                  {item.goods.length !== 0 && (
+                    <S.GoodsBox>
                       <S.GoodsThumbnail
                         style={{
                           backgroundImage: `url(${item.goods[0].image}), url(${imgRoutes.thumbnail}/product_default.png)`,
                         }}
                       />
-                    )}
-                    {console.log(item.goods[0])}
-                    <S.GoodsInfo>
-                      <S.GoodsName>{item.goods[0].goodsName}</S.GoodsName>
-                      <S.GoodsPrices>
-                        {discount(item.goods[0].price, item.goods[0].marketPrice) !== null &&
-                          discount(item.goods[0].price, item.goods[0].marketPrice) > 0 && (
-                            <S.Discount>
-                              {discount(item.goods[0].price, item.goods[0].marketPrice)}
-                            </S.Discount>
-                          )}
 
-                        {item.goods[0].price !== null && <S.Price>{item.goods[0].price}</S.Price>}
-                      </S.GoodsPrices>
-                    </S.GoodsInfo>
-                  </S.GoodsBox>
+                      {console.log(item.goods[0])}
+                      <S.GoodsInfo>
+                        <S.GoodsName>{item.goods[0].goodsName}</S.GoodsName>
+                        <S.GoodsPrices>
+                          {discount(
+                            item.goods[0].price,
+                            item.goods[0].marketPrice
+                          ) !== null &&
+                            discount(
+                              item.goods[0].price,
+                              item.goods[0].marketPrice
+                            ) > 0 && (
+                              <S.Discount>
+                                {discount(
+                                  item.goods[0].price,
+                                  item.goods[0].marketPrice
+                                )}
+                              </S.Discount>
+                            )}
+
+                          {item.goods[0].price !== null && (
+                            // <S.Price>{item.goods[0].price}</S.Price>
+                            <S.Price>{comma(item.goods[0].price)}</S.Price>
+                          )}
+                        </S.GoodsPrices>
+                      </S.GoodsInfo>
+                    </S.GoodsBox>
+                  )}
                 </ThumbnailBox>
                 <S.SellerBox>
                   <S.Seller>{item.providerName}</S.Seller>

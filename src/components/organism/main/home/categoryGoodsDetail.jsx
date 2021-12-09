@@ -53,6 +53,10 @@ const CategoryGoodsDetail = () => {
       .catch((error) => console.log("error", error));
   }, []);
 
+  const comma = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   return (
     <>
       {categoryGoods.length !== 0 &&
@@ -78,21 +82,27 @@ const CategoryGoodsDetail = () => {
                           <S.LiveBox>
                             <S.LiveViewerBox>
                               <S.LiveViewerSmall />
-                              <S.LiveViewerNumSmall>{item.watchCnt}</S.LiveViewerNumSmall>
+                              <S.LiveViewerNumSmall>
+                                {item.watchCnt}
+                              </S.LiveViewerNumSmall>
                             </S.LiveViewerBox>
                           </S.LiveBox>
                           <S.TimeSmall>{item.vodTime}</S.TimeSmall>
                         </S.Option>
                         <S.GoodsBox>
                           <S.GoodsInfo2>
-                            <S.GoodsNameSmall>{item.goods[0].goodsName}</S.GoodsNameSmall>
+                            <S.GoodsNameSmall>
+                              {item.goods[0].goodsName}
+                            </S.GoodsNameSmall>
                             <S.GoodsPrices>
                               <S.Discount>
                                 {Math.floor(
-                                  100 - (item.goods[0].price * 100) / item.goods[0].marketPrice
+                                  100 -
+                                    (item.goods[0].price * 100) /
+                                      item.goods[0].marketPrice
                                 )}
                               </S.Discount>
-                              <S.Price>{item.goods[0].price}</S.Price>
+                              <S.Price>{comma(item.goods[0].price)}</S.Price>
                             </S.GoodsPrices>
                           </S.GoodsInfo2>
                         </S.GoodsBox>

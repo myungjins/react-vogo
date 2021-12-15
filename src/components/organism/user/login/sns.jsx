@@ -7,6 +7,7 @@ import GoogleLogin from "react-google-login";
 import KakaoLogin from "react-kakao-login";
 import AppleLogin from "react-apple-login";
 import { Link } from "react-router-dom";
+// import { KAKAO_AUTH_URL } from "service/kakao";
 
 const snsComm = css`
   width: 50px !important;
@@ -150,6 +151,8 @@ const SignUp = styled.span`
   cursor: pointer;
 `;
 
+const token = "f6e9068b399becf0b3ccc722f8cbab54";
+
 const Sns = () => {
   return (
     <>
@@ -165,7 +168,14 @@ const Sns = () => {
         </SnsList>
 
         <SnsList>
-          <KaKaoBtn />
+          {/* <KaKaoBtn href={KAKAO_AUTH_URL} /> */}
+          {/* {console.log(window.location.href)} */}
+          <KaKaoBtn //
+            token={token}
+            onSucces={console.log}
+            onFail={console.log}
+            onLogout={console.log}
+          />
           <SpeechBubble>
             ⚡️카카오로 &nbsp;
             <SpeechBubbleAcive>3초만에</SpeechBubbleAcive> 가입하기

@@ -110,8 +110,6 @@ const LiveHotDeal = memo(() => {
                           backgroundImage: `url(${item.goods[0].image}), url(${imgRoutes.thumbnail}/product_default.png)`,
                         }}
                       />
-
-                      {console.log(item.goods[0])}
                       <S.GoodsInfo>
                         <S.GoodsName>{item.goods[0].goodsName}</S.GoodsName>
                         <S.GoodsPrices>

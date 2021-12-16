@@ -7,7 +7,6 @@ import GoogleLogin from "react-google-login";
 import KakaoLogin from "react-kakao-login";
 import AppleLogin from "react-apple-login";
 import { Link } from "react-router-dom";
-// import { KAKAO_AUTH_URL } from "service/kakao";
 
 const snsComm = css`
   width: 50px !important;
@@ -152,6 +151,9 @@ const SignUp = styled.span`
 `;
 
 const token = "f6e9068b399becf0b3ccc722f8cbab54";
+const responseGoogle = (response: any) => {
+  console.log(response);
+};
 
 const Sns = () => {
   return (
@@ -168,8 +170,6 @@ const Sns = () => {
         </SnsList>
 
         <SnsList>
-          {/* <KaKaoBtn href={KAKAO_AUTH_URL} /> */}
-          {/* {console.log(window.location.href)} */}
           <KaKaoBtn //
             token={token}
             onSucces={console.log}
@@ -187,7 +187,13 @@ const Sns = () => {
         </SnsList>
 
         <SnsList>
-          <GoogleBtn />
+          <GoogleBtn
+            clientId='180088215739-nuc8nqk5l6fogehglisobaptje73eb1e.apps.googleusercontent.com'
+            buttonText='GoogleLogin'
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={"single_host_origin"}
+          />
         </SnsList>
       </SnsBox>
 

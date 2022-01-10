@@ -9,6 +9,7 @@ import Category from "page/main/category";
 import User from "page/user";
 import Feed from "page/feed";
 import ModalGuide from "components/shared/guide/modal.guide";
+import NewYear from "page/event/newYear";
 
 const Routes = () => {
   return (
@@ -20,6 +21,9 @@ const Routes = () => {
 
       {/* user */}
       <Route path='/user' component={User} />
+
+      {/* exhibition 기획전 */}
+      <Route path='/newYear' component={NewYear} />
 
       {/* guide */}
       <Route path='/guide/thumbnail' component={Thumbnailguide} exact />

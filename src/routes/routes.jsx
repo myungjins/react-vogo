@@ -1,37 +1,45 @@
-import ButtonGuide from "components/shared/guide/button.guide";
-import FormGuide from "components/shared/guide/form.guide";
-import GoodsGuide from "components/shared/guide/goods.guide";
-import Thumbnailguide from "components/shared/guide/thumbnail.guide";
 import React from "react";
-import { Route } from "react-router";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import AuthRoute from "store/authRoute";
+
 import Main from "page/main";
 import Category from "page/main/category";
+
 import User from "page/user";
+
 import Feed from "page/feed";
-import ModalGuide from "components/shared/guide/modal.guide";
+
 import NewYear from "page/event/newYear";
+
+import GoodsGuide from "components/shared/guide/goods.guide";
+import FormGuide from "components/shared/guide/form.guide";
+import ModalGuide from "components/shared/guide/modal.guide";
+import ButtonGuide from "components/shared/guide/button.guide";
+import Thumbnailguide from "components/shared/guide/thumbnail.guide";
 
 const Routes = () => {
   return (
-    <>
-      {/* home */}
-      <Route path='/' component={Main} exact />
-      <Route path='/category' component={Category} />
-      <Route path='/feed' component={Feed} />
+    <Router>
+      <Switch>
+        {/* home */}
+        <AuthRoute path='/' exact component={Main} />
+        <AuthRoute path='/category' component={Category} />
+        <AuthRoute path='/feed' component={Feed} />
 
-      {/* user */}
-      <Route path='/user' component={User} />
+        {/* user */}
+        <AuthRoute path='/user' component={User} />
 
-      {/* exhibition 기획전 */}
-      <Route path='/newYear' component={NewYear} />
+        {/* exhibition 기획전 */}
+        <AuthRoute path='/newYear' component={NewYear} />
 
-      {/* guide */}
-      <Route path='/guide/thumbnail' component={Thumbnailguide} exact />
-      <Route path='/guide/goods' component={GoodsGuide} />
-      <Route path='/guide/button' component={ButtonGuide} />
-      <Route path='/guide/form' component={FormGuide} />
-      <Route path='/guide/modal' component={ModalGuide} />
-    </>
+        {/* guide */}
+        <AuthRoute path='/guide/thumbnail' exact component={Thumbnailguide} />
+        <AuthRoute path='/guide/goods' component={GoodsGuide} />
+        <AuthRoute path='/guide/button' component={ButtonGuide} />
+        <AuthRoute path='/guide/form' component={FormGuide} />
+        <AuthRoute path='/guide/modal' component={ModalGuide} />
+      </Switch>
+    </Router>
   );
 };
 

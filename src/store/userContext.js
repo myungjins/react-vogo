@@ -3,7 +3,6 @@ import { mypageApi } from "service/mypageApi";
 
 const UserContext = createContext();
 export const useUserContext = () => useContext(UserContext);
-
 export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(JSON.parse(sessionStorage.getItem("userNo") || null));
   const [rute, setRute] = useState(JSON.parse(sessionStorage.getItem("rute") || null));

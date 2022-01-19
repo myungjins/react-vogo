@@ -59,7 +59,7 @@ const NewYear = () => {
 
             if (index === 0) {
               // console 찍으니까 0,1,2,3 나옴
-              return { ...item, current: true };
+              return { ...item, current: true }; // 0부터 tab 시작
             } else {
               return { ...item, current: false };
             }
@@ -67,7 +67,6 @@ const NewYear = () => {
           setGoodsTab(tab);
 
           const goods = data.list.map((item: IGoodTab) => {
-            //
             // console.log(item.list);
 
             return item.list; //  tab list item array

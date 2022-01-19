@@ -194,17 +194,20 @@ const Goods = memo(({ goodsTab, setGoodsTab, goodsList }: IProps) => {
   // console.log(select);
   // console.log(goodsTab);
   // console.log(setGoodsTab); // 무슨값이지..?
-  console.log(goodsList);
+  // console.log(goodsList);
 
   const handleTab = (tab: IGoodTab, index: number) => {
     if (!tab.current) {
       //IGoodTab current 값이 맞지 않다면
       const tabChange = goodsTab.map((it) => {
-        // console.log(it); // 탭 클릭시 tab.idx (current) 값과 반대
+        // console.log(it.idx);
+        // console.log(tab.idx);
+        // console.log(index);
+        // 탭 클릭시 tab.idx (current) 값과 반대
 
         if (it.idx === tab.idx) {
-          // idx 같으면 tab 활성화 됨
-          setSelect(index); // 선택한 index 값이 보임
+          // it, tab idx 같으면
+          setSelect(index); // 선택한 goodsList 값이 보임
           return { ...tab, current: true }; // tab 활성화 됨
         }
         return { ...it, current: false }; // tab 비활성화 됨
@@ -258,7 +261,8 @@ const Goods = memo(({ goodsTab, setGoodsTab, goodsList }: IProps) => {
           (item, index) =>
             select === index && ( // select 와 index 값이 같다면
               <Items key={index}>
-                {console.log(index)}
+                {/* {console.log(select)}
+                {console.log(index)} */}
                 {item.map((list: IGoodsList) => (
                   <Item key={list.goodsNo}>
                     <Img onClick={() => handleLink(list)}>
@@ -295,7 +299,7 @@ const Goods = memo(({ goodsTab, setGoodsTab, goodsList }: IProps) => {
                       <Title>{list.goodsName}</Title>
                       <PriceBox>
                         <Price
-                          eventLink={list.discountCardCode === "12"} //discountCardCode 12면 링크
+                          eventLink={list.discountCardCode === "12"} //discountCardCode 12면 링크 상품
                           eventStockOut={
                             new Date(
                               Number(list.resDate.slice(0, 4)), //
@@ -314,7 +318,7 @@ const Goods = memo(({ goodsTab, setGoodsTab, goodsList }: IProps) => {
                             : comma(list.price)}
                           원
                         </Price>
-                        {list.marketPrice !== 0 && ( // 0원이면 안뜸
+                        {list.marketPrice !== 0 && ( // 원가 0원이면 안뜸
                           <Del>
                             {comma(list.marketPrice)} <NotoSans>원</NotoSans>
                           </Del>
